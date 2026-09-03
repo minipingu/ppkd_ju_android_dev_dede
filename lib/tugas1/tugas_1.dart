@@ -6,21 +6,7 @@ class TugasFlutter1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profil saya'),
-        backgroundColor: Colors.red,
-        // leading: Icon(Icons.arrow_back, color: Colors.white, size: 40),
-        // actions: [
-        //   Center(
-        //     child: CircleAvatar(
-        //       radius: 20,
-        //       backgroundColor: Colors.amberAccent,
-        //       backgroundImage: AssetImage('assets/images/gibs.png'),
-        //     ),
-        //   ),
-        //   // Icon(Icons.view_headline, color: Colors.white, size: 40),
-        // ],
-      ),
+      appBar: AppBar(title: Text('Profil saya'), backgroundColor: Colors.red),
       body: Column(
         children: [
           // Baris 1: Nama lengkap (gunakan Text dengan ukuran font besar)
