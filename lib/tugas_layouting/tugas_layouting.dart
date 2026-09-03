@@ -17,10 +17,13 @@ class TugasLayouting extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        leading: Icon(Icons.menu, color: Colors.black, size: 30),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 40),
+          child: Icon(Icons.menu, color: Colors.black, size: 30),
+        ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 8),
+            padding: const EdgeInsets.only(right: 20),
             child: CircleAvatar(
               radius: 26,
               backgroundColor: Colors.blue,
