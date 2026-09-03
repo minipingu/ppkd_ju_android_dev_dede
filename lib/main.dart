@@ -9,12 +9,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tugasssssssss shiapppp',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.yellow)),
+      title: 'Tugasssssssss',
+
+      theme: ThemeData(
+        colorScheme: .fromSeed(
+          //warna dasar tema, nanti bisa diganti
+          seedColor: Colors.blue,
+        ),
+      ),
       home: const TugasLayouting(),
       debugShowCheckedModeBanner: false,
     );
