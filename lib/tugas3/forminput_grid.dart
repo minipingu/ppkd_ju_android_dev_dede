@@ -28,64 +28,54 @@ class ForminputGrid extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
               child: Column(
                 children: [
-                  SizedBox(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
-                        labelText: 'Nama lengkap',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                  TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.person),
+                      labelText: 'Nama lengkap',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 20),
-                  SizedBox(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.mail),
-                        labelText: 'Email Pengguna',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                  TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.mail),
+                      labelText: 'Email Pengguna',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 20),
-                  SizedBox(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.phone),
-                        labelText: 'Telephone Pengguna',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                  TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.phone),
+                      labelText: 'Telfon Pengguna',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 20),
-                  SizedBox(
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.key),
-                        labelText: 'Input Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.key),
+                      labelText: 'Input Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 20),
-                  SizedBox(
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: 'Silahkan Konfirmasi Password',
-                        labelText: 'Konfirmasi Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Silahkan Konfirmasi Password',
+                      labelText: 'Konfirmasi Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
@@ -97,6 +87,55 @@ class ForminputGrid extends StatelessWidget {
               child: Text(
                 'Wilayah Pemantauan Kualitas Udara Terdekat',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: GridView.count(
+                crossAxisCount: 3,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Positioned(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.tealAccent,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 16,
+                                  right: 16,
+                                  bottom: 4,
+                                  top: 4,
+                                ),
+                                child: Text('Jakarta'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Container(color: Colors.green),
+                  Container(color: Colors.green),
+                  Container(color: Colors.green),
+                  Container(color: Colors.green),
+                ],
               ),
             ),
           ],

@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tugasssssssss',
-
       theme: ThemeData(
         colorScheme: .fromSeed(
           //warna dasar tema, nanti bisa diganti
