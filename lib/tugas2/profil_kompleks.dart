@@ -73,7 +73,7 @@ class ProfilKompleks extends StatelessWidget {
                         color: Colors.black.withValues(alpha: 0.2),
                         blurRadius: 1,
                         spreadRadius: 1,
-                        offset: const Offset(0, 5),
+                        offset: Offset(0, 5),
                       ),
                     ],
                     color: Color(0xFF76A3E2),
@@ -81,7 +81,7 @@ class ProfilKompleks extends StatelessWidget {
                     border: Border.all(color: Colors.grey, width: 1),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: [
                         Column(
