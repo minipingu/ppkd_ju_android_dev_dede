@@ -126,7 +126,10 @@ class ListviewListtile extends StatelessWidget {
                   Card(
                     color: Colors.white,
                     child: ListTile(
-                      title: Text('Bandung Kota'),
+                      title: Text(
+                        'Bandung Kota',
+                        style: TextStyle(fontWeight: .bold, fontSize: 18),
+                      ),
                       leading: CircleAvatar(
                         backgroundColor: Colors.orange,
                         child: Icon(Icons.cloud, color: Colors.white),
@@ -141,7 +144,10 @@ class ListviewListtile extends StatelessWidget {
                   Card(
                     color: Colors.white,
                     child: ListTile(
-                      title: Text('Yogyakarta'),
+                      title: Text(
+                        'Yogyakarta',
+                        style: TextStyle(fontWeight: .bold, fontSize: 18),
+                      ),
                       leading: CircleAvatar(
                         backgroundColor: Colors.green,
                         child: Icon(Icons.check_circle, color: Colors.white),
@@ -156,7 +162,10 @@ class ListviewListtile extends StatelessWidget {
                   Card(
                     color: Colors.white,
                     child: ListTile(
-                      title: Text('Semarang'),
+                      title: Text(
+                        'Semarang',
+                        style: TextStyle(fontWeight: .bold, fontSize: 18),
+                      ),
                       leading: CircleAvatar(
                         backgroundColor: Colors.redAccent,
                         child: Icon(Icons.masks, color: Colors.white),
@@ -171,7 +180,10 @@ class ListviewListtile extends StatelessWidget {
                   Card(
                     color: Colors.white,
                     child: ListTile(
-                      title: Text('Lampung'),
+                      title: Text(
+                        'Lampung',
+                        style: TextStyle(fontWeight: .bold, fontSize: 18),
+                      ),
                       leading: CircleAvatar(
                         backgroundColor: Colors.green,
                         child: Icon(Icons.check_circle, color: Colors.white),
