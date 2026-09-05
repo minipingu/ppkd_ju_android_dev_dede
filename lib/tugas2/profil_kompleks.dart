@@ -207,7 +207,7 @@ class ProfilKompleks extends StatelessWidget {
                       ClipRRect(
                         borderRadius: .circular(20),
                         child: Image.asset(
-                          'assets/images/gibransensor.png',
+                          'assets/images/gibran_transparent.png',
                           height: 140,
                         ),
                       ),
