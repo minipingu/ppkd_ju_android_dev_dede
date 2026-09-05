@@ -35,7 +35,7 @@ class ForminputGrid extends StatelessWidget {
                   padding: const EdgeInsets.all(30),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(220, 255, 255, 255),
+                      color: Color.fromARGB(210, 255, 255, 255),
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
@@ -48,7 +48,7 @@ class ForminputGrid extends StatelessWidget {
                     ),
                     //
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 30, bottom: 30),
+                      padding: const EdgeInsets.only(top: 20, bottom: 20),
                       child: Column(
                         children: [
                           Center(
@@ -68,6 +68,7 @@ class ForminputGrid extends StatelessWidget {
                               right: 20,
                             ),
                             child: Column(
+                              spacing: 20,
                               children: [
                                 TextField(
                                   decoration: InputDecoration(
@@ -78,7 +79,6 @@ class ForminputGrid extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 20),
                                 TextField(
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(Icons.mail),
@@ -88,7 +88,6 @@ class ForminputGrid extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 20),
                                 TextField(
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(Icons.phone),
@@ -98,7 +97,6 @@ class ForminputGrid extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 20),
                                 TextField(
                                   obscureText: true,
                                   decoration: InputDecoration(
@@ -109,7 +107,6 @@ class ForminputGrid extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 20),
                                 TextField(
                                   obscureText: true,
                                   decoration: InputDecoration(
@@ -132,7 +129,18 @@ class ForminputGrid extends StatelessWidget {
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: Text(
                     'Wilayah Pemantauan Kualitas Udara Terdekat',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 7,
+                          color: Colors.black,
+                          offset: Offset(1, 3),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -145,7 +153,7 @@ class ForminputGrid extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     children: [
                       // grid content
-                      //jakarta
+                      // jakarta
                       Stack(
                         children: [
                           ClipRRect(
