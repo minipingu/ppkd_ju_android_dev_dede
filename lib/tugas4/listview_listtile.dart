@@ -18,7 +18,7 @@ class ListviewListtile extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: Container(
               height: 430,
               decoration: BoxDecoration(
@@ -94,8 +94,12 @@ class ListviewListtile extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
-            child: Text('Riwayat Laporan Terakhir'),
+            child: Text(
+              'Riwayat Laporan Terakhir',
+              style: TextStyle(fontWeight: .bold, fontSize: 20),
+            ),
           ),
+          ListTile(title: Text('sdasd'), leading: Icon(Icons.warning)),
         ],
       ),
     );
