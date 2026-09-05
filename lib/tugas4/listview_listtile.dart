@@ -99,7 +99,94 @@ class ListviewListtile extends StatelessWidget {
               style: TextStyle(fontWeight: .bold, fontSize: 20),
             ),
           ),
-          ListTile(title: Text('sdasd'), leading: Icon(Icons.warning)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 300,
+              child: ListView(
+                children: [
+                  Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text(
+                        'Jakarta Pusat',
+                        style: TextStyle(fontWeight: .bold, fontSize: 18),
+                      ),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.red,
+                        child: Icon(Icons.warning, color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        'AQI: 156 - Tidak Sehat. Dilaporkan 1 menit lalu',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Icon(Icons.arrow_right),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text('Bandung Kota'),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.orange,
+                        child: Icon(Icons.cloud, color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        'AQI 156 - Tidak Sehat. Dilaporkan 5 menit lalu',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Icon(Icons.arrow_right),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text('Yogyakarta'),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.green,
+                        child: Icon(Icons.check_circle, color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        'AQI 156 - Tidak Sehat. Dilaporkan 30 menit lalu',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Icon(Icons.arrow_right),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text('Semarang'),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.redAccent,
+                        child: Icon(Icons.masks, color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        'AQI 120 - Sensitif. Dilaporkan 1 jam lalu',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Icon(Icons.arrow_right),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text('Lampung'),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.green,
+                        child: Icon(Icons.check_circle, color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        'AQI 42 - Baik. Dilaporkan 3 jam lalu',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Icon(Icons.arrow_right),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
