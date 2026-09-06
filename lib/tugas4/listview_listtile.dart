@@ -26,7 +26,6 @@ class ListviewListtile extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ),
-
           ListView(
             children: [
               Padding(
