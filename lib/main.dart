@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas1/tugas_1.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas2/profil_kompleks.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas3/forminput_grid.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas4/listview_listtile.dart';
@@ -15,7 +16,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tugasssssssss',
-      home: ListviewListtile(),
+
+      //tugas 1
+      // home: TugasFlutter1(),
+
+      // tugas 2
+      home: ProfilKompleks(),
+
+      // tugas 3
+      // home: ForminputGrid(),
+
+      //tugas 4
+      // home: ListviewListtile(),
       debugShowCheckedModeBanner: false,
     );
   }
