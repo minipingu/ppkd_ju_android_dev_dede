@@ -180,13 +180,13 @@ class ProfilKompleks extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              SizedBox(height: 40),
               Text(
                 '''Katanya 19 juta lapangan pekerjaan sudah disiapkan untuk rakyat 😡😡😡. Rakyat pun diminta optimis, karena masa depan katanya cerah. Begitu cari kerja, lowongannya minta pengalaman 3 tahun, gaji setara UMR, kerja merangkap tiga posisi. Yang fresh graduate akhirnya cuma punya pengalaman melamar kerja dan menerima email “terima kasih, tetapi...”. Katanya investasi masuk besar-besaran dan lapangan kerja akan terbuka lebar. Mungkin benar terbuka lebar, tapi bukan untuk rakyat biasa.''',
                 textAlign: TextAlign.justify,
                 style: TextStyle(color: Colors.white),
               ),
-              SizedBox(height: 60),
+              SizedBox(height: 40),
               Container(
                 width: 400,
                 decoration: BoxDecoration(
