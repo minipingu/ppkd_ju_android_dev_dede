@@ -21,7 +21,7 @@ class ForminputGrid extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   title: Center(
                     child: Text(
-                      'Form Input dan Grid',
+                      'NPD Final Boss',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

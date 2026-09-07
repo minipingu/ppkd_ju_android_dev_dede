@@ -13,7 +13,7 @@ class ListviewListtile extends StatelessWidget {
         elevation: 0,
         title: Center(
           child: Text(
-            'Laporan & Riwayat Udara',
+            'NPD Final Boss',
             style: TextStyle(color: Colors.white, fontWeight: .bold),
           ),
         ),

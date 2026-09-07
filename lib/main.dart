@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
       //tugas 1
       // home: TugasFlutter1(),
 
+      // tugas layouting
+      // home: TugasLayouting(),
+
       // tugas 2
       home: ProfilKompleks(),
 
