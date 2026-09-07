@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 /* 
   ini adalah tugas 1 dart yang saya buat, saya menulis beberapa variabel 
   */
@@ -14,7 +12,7 @@ void main() {
   ];
   Map<String, String> informasiTambahan = {
     'alamat': "Koja, Jakarta Utara",
-    'Profesi': "Pelajar",
+    'profesi': "Pelajar",
   };
 
   /// function ini digunakan untuk print semua variabel
