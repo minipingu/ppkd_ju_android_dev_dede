@@ -140,9 +140,9 @@ class ProfilKompleks extends StatelessWidget {
                               text: TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: '1',
+                                    text: '11',
                                     style: TextStyle(
-                                      color: Colors.redAccent,
+                                      color: Colors.green,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -194,7 +194,7 @@ class ProfilKompleks extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      offset: Offset(1, 4),
+                      offset: Offset(1, 10),
                       blurRadius: 4,
                       color: const Color.fromARGB(255, 180, 221, 255),
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/latihan_state/latihan_stateful.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas1/tugas_1.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas2/profil_kompleks.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas3/forminput_grid.dart';
@@ -24,13 +25,16 @@ class MyApp extends StatelessWidget {
       // home: TugasLayouting(),
 
       // tugas 2
-      home: ProfilKompleks(),
+      // home: ProfilKompleks(),
 
       // tugas 3
-      // home: ForminputGrid(),
+      home: ForminputGrid(),
 
       //tugas 4
       // home: ListviewListtile(),
+
+      //latihan stateless
+      // home: LatihanStateful(),
       debugShowCheckedModeBanner: false,
     );
   }

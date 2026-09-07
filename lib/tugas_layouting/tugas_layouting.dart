@@ -66,7 +66,7 @@ class TugasLayouting extends StatelessWidget {
                   children: [
                     //judul
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 14),
+                      padding: const EdgeInsets.only(bottom: 20),
                       child: Text(
                         'Masa Depan Energi Terbarukan: Inovasi Bahan Bakar Minyak Sawit di 2077',
                         style: TextStyle(
