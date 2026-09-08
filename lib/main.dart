@@ -4,6 +4,7 @@ import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas1/tugas_1.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas2/profil_kompleks.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas3/forminput_grid.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas4/listview_listtile.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas5/state_event.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas_layouting/tugas_layouting.dart';
 
 void main() {
@@ -28,13 +29,13 @@ class MyApp extends StatelessWidget {
       // home: ProfilKompleks(),
 
       // tugas 3
-      home: ForminputGrid(),
+      // home: ForminputGrid(),
 
       //tugas 4
       // home: ListviewListtile(),
+      //tugas5
+      home: StateEvent(),
 
-      //latihan stateless
-      // home: LatihanStateful(),
       debugShowCheckedModeBanner: false,
     );
   }
