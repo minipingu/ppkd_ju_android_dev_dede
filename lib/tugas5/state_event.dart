@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+enum Status { closed, open }
+
 class StateEvent extends StatefulWidget {
   const new({super.key});
 
@@ -10,49 +12,83 @@ class StateEvent extends StatefulWidget {
 class _StateEventState extends State<StateEvent> {
   //onPressed Elevated Button
   var elevatedButtonText = '';
+  Status elevatedStatus = Status.closed;
   void showTextForElevatedButton() {
-    if (elevatedButtonText == '') {
-      setState(() => elevatedButtonText = 'Halo, saya Developer!');
-    } else {
-      setState(() => elevatedButtonText = '');
-    }
+    elevatedButtonText == ''
+        ? setState(() => elevatedButtonText = 'Halo, saya WaPres! 🗿')
+        : setState(() => elevatedButtonText = '');
+
+    elevatedStatus == Status.closed
+        ? setState(() {
+            print(elevatedStatus);
+            elevatedStatus = Status.open;
+          })
+        : setState(() {
+            print(elevatedStatus);
+            elevatedStatus = Status.closed;
+          });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Column(
-          spacing: 40,
-          children: [
-            Column(
-              // 1
-              children: [
-                Text('Elevated Button'),
-                ElevatedButton(
-                  onPressed: () {
-                    showTextForElevatedButton();
-                  },
-                  child: Text('Elevated Button'),
-                ),
-                if (elevatedButtonText != '') Text(elevatedButtonText),
-              ],
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            'Salam Interaksi!',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: .bold,
             ),
-            Column(
-              // 2
-              children: [
-                Text('Text Button'),
-                TextButton(
-                  onPressed: () {
-                    showTextForElevatedButton();
-                  },
-                  child: Text('Elevated Button'),
+          ),
+        ),
+        backgroundColor: Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Center(
+          child: Column(
+            spacing: 40,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                if (elevatedButtonText != '') Text(elevatedButtonText),
-              ],
-            ),
-          ],
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    // 1
+                    mainAxisAlignment: .center,
+                    children: [
+                      Text(
+                        'Elevated Button',
+                        textAlign: .start,
+                        style: TextStyle(
+                          fontStyle: .italic,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          showTextForElevatedButton();
+                        },
+                        child: Text(
+                          elevatedStatus == Status.closed ? 'Tutup' : 'Buka',
+                        ),
+                      ),
+                      if (elevatedButtonText != '')
+                        Text(
+                          elevatedButtonText,
+                          style: TextStyle(fontSize: 30),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
