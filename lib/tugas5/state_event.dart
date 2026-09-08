@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-enum Status { closed, open }
-
 class StateEvent extends StatefulWidget {
   const new({super.key});
 
@@ -12,21 +10,10 @@ class StateEvent extends StatefulWidget {
 class _StateEventState extends State<StateEvent> {
   //onPressed Elevated Button
   var elevatedButtonText = '';
-  Status elevatedStatus = Status.closed;
   void showTextForElevatedButton() {
     elevatedButtonText == ''
         ? setState(() => elevatedButtonText = 'Halo, saya WaPres! 🗿')
         : setState(() => elevatedButtonText = '');
-
-    elevatedStatus == Status.closed
-        ? setState(() {
-            print(elevatedStatus);
-            elevatedStatus = Status.open;
-          })
-        : setState(() {
-            print(elevatedStatus);
-            elevatedStatus = Status.closed;
-          });
   }
 
   @override
@@ -75,7 +62,7 @@ class _StateEventState extends State<StateEvent> {
                           showTextForElevatedButton();
                         },
                         child: Text(
-                          elevatedStatus == Status.closed ? 'Tutup' : 'Buka',
+                          elevatedButtonText != '' ? 'Tutup' : 'Buka',
                         ),
                       ),
                       if (elevatedButtonText != '')
