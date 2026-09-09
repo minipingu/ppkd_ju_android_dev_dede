@@ -7,13 +7,15 @@ class StateEvent extends StatefulWidget {
   State<StateEvent> createState() => _StateEventState();
 }
 
+enum ButtonStatus { closed, open }
+
 class _StateEventState extends State<StateEvent> {
   //onPressed Elevated Button
-  var elevatedButtonText = '';
+  ButtonStatus elevatedButtonText = ButtonStatus.closed;
   void showTextForElevatedButton() {
-    elevatedButtonText == ''
-        ? setState(() => elevatedButtonText = 'Halo, saya WaPres! 🗿')
-        : setState(() => elevatedButtonText = '');
+    elevatedButtonText == ButtonStatus.closed
+        ? setState(() => elevatedButtonText = ButtonStatus.open)
+        : setState(() => elevatedButtonText = ButtonStatus.closed);
   }
 
   @override
@@ -36,17 +38,17 @@ class _StateEventState extends State<StateEvent> {
         padding: const EdgeInsets.all(20.0),
         child: Center(
           child: Column(
-            spacing: 40,
+            spacing: 20,
             children: [
+              //Elevated Button
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(20),
                   child: Column(
-                    // 1
                     mainAxisAlignment: .center,
                     children: [
                       Text(
@@ -61,14 +63,26 @@ class _StateEventState extends State<StateEvent> {
                         onPressed: () {
                           showTextForElevatedButton();
                         },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                          textStyle: TextStyle(fontSize: 20),
+                        ),
                         child: Text(
-                          elevatedButtonText != '' ? 'Tutup' : 'Buka',
+                          elevatedButtonText == ButtonStatus.open
+                              ? 'Buka'
+                              : 'Tutup',
                         ),
                       ),
-                      if (elevatedButtonText != '')
-                        Text(
-                          elevatedButtonText,
-                          style: TextStyle(fontSize: 30),
+                      if (elevatedButtonText == ButtonStatus.open)
+                        Column(
+                          children: [
+                            Text(
+                              "Halo, Saya ini WaPres-mu!",
+                              style: TextStyle(fontSize: 24),
+                            ),
+                            Image.asset('assets/images/gibs.png'),
+                          ],
                         ),
                     ],
                   ),
