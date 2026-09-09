@@ -96,6 +96,7 @@ class _StateEventState extends State<StateEvent> {
                   ),
                 ),
               ),
+              //TextButton
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(),
@@ -132,14 +133,17 @@ class _StateEventState extends State<StateEvent> {
                         Column(
                           children: [
                             Text(
-                              "Hari ini saya mau pidato, tapi semoga saya tidak blunder. n Ada pantun juga nih, jalan-jalan ke pasar beli tomat, eh ngeliat foto terbang di langit,  ",
+                              "Hari ini saya mau pidato, tapi semoga saya tidak blunder.",
                               style: TextStyle(fontSize: 18),
                               textAlign: .justify,
                             ),
                             SizedBox(height: 20),
-                            Text(
-                              "Ada pantun juga nih...",
-                              style: TextStyle(fontSize: 18),
+                            Align(
+                              alignment: .centerStart,
+                              child: Text(
+                                "Ada pantun juga nih...",
+                                style: TextStyle(fontSize: 18),
+                              ),
                             ),
                             SizedBox(height: 20),
                             Text(
