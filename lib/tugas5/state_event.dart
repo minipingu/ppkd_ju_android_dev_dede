@@ -248,7 +248,7 @@ class _StateEventState extends State<StateEvent> {
                     ),
                   ),
                 ),
-                // 4. Inkwell
+                // 5. Gesture Detector
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(),
@@ -293,9 +293,33 @@ class _StateEventState extends State<StateEvent> {
                               border: Border.all(color: Colors.blue),
                             ),
                             child: Center(
-                              child: Text('$gestureDetectorNumber'),
+                              child: Text(
+                                '$gestureDetectorNumber',
+                                style: TextStyle(fontSize: 20),
+                              ),
                             ),
                           ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // 6. FAB
+                Align(
+                  alignment: .bottomEnd,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      print('Sentuhan terdeteksi');
+                      setState(
+                        () => gestureDetectorNumber = gestureDetectorNumber - 5,
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Text('FAB', style: TextStyle(fontSize: 12)),
+                        Text(
+                          '$gestureDetectorNumber',
+                          style: TextStyle(fontSize: 20),
                         ),
                       ],
                     ),
