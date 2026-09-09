@@ -10,12 +10,20 @@ class StateEvent extends StatefulWidget {
 enum ButtonStatus { closed, open }
 
 class _StateEventState extends State<StateEvent> {
-  //onPressed Elevated Button
-  ButtonStatus elevatedButtonText = ButtonStatus.closed;
-  void showTextForElevatedButton() {
-    elevatedButtonText == ButtonStatus.closed
-        ? setState(() => elevatedButtonText = ButtonStatus.open)
-        : setState(() => elevatedButtonText = ButtonStatus.closed);
+  //onPressed ElevatedButton
+  ButtonStatus elevatedButtonStatus = ButtonStatus.closed;
+  void elevatedButtonEvent() {
+    elevatedButtonStatus == ButtonStatus.closed
+        ? setState(() => elevatedButtonStatus = ButtonStatus.open)
+        : setState(() => elevatedButtonStatus = ButtonStatus.closed);
+  }
+
+  //onPressed TextButton
+  ButtonStatus textButtonStatus = ButtonStatus.closed;
+  void textButtonEvent() {
+    textButtonStatus == ButtonStatus.closed
+        ? setState(() => textButtonStatus = ButtonStatus.open)
+        : setState(() => textButtonStatus = ButtonStatus.closed);
   }
 
   @override
@@ -52,7 +60,7 @@ class _StateEventState extends State<StateEvent> {
                     mainAxisAlignment: .center,
                     children: [
                       Text(
-                        'Elevated Button',
+                        'ElevatedButton',
                         textAlign: .start,
                         style: TextStyle(
                           fontStyle: .italic,
@@ -61,7 +69,7 @@ class _StateEventState extends State<StateEvent> {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          showTextForElevatedButton();
+                          elevatedButtonEvent();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
@@ -69,12 +77,12 @@ class _StateEventState extends State<StateEvent> {
                           textStyle: TextStyle(fontSize: 20),
                         ),
                         child: Text(
-                          elevatedButtonText == ButtonStatus.open
+                          elevatedButtonStatus == ButtonStatus.open
                               ? 'Buka'
                               : 'Tutup',
                         ),
                       ),
-                      if (elevatedButtonText == ButtonStatus.open)
+                      if (elevatedButtonStatus == ButtonStatus.open)
                         Column(
                           children: [
                             Text(
@@ -82,6 +90,69 @@ class _StateEventState extends State<StateEvent> {
                               style: TextStyle(fontSize: 24),
                             ),
                             Image.asset('assets/images/gibs.png'),
+                          ],
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: .center,
+                    children: [
+                      Text(
+                        'TextButton',
+                        textAlign: .start,
+                        style: TextStyle(
+                          fontStyle: .italic,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          textButtonEvent();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.blue,
+                          textStyle: TextStyle(fontSize: 20),
+                        ),
+                        child: Text(
+                          textButtonStatus == ButtonStatus.closed
+                              ? 'Buka'
+                              : 'Tutup',
+                        ),
+                      ),
+                      if (textButtonStatus == ButtonStatus.open)
+                        Column(
+                          children: [
+                            Text(
+                              "Hari ini saya mau pidato, tapi semoga saya tidak blunder. n Ada pantun juga nih, jalan-jalan ke pasar beli tomat, eh ngeliat foto terbang di langit,  ",
+                              style: TextStyle(fontSize: 18),
+                              textAlign: .justify,
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              "Ada pantun juga nih...",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              "Jalan-jalan ke pasar beli tomat, eh ngeliat foto terbang di langit.",
+                              style: TextStyle(fontSize: 18),
+                              textAlign: .justify,
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              "Doakan semoga saya selamat, saya pamit 🗿",
+                              style: TextStyle(fontSize: 18),
+                              textAlign: .justify,
+                            ),
                           ],
                         ),
                     ],
