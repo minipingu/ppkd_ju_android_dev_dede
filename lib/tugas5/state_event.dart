@@ -19,6 +19,14 @@ class _StateEventState extends State<StateEvent> {
   }
 
   //onPressed TextButton
+  ButtonStatus iconButtonStatus = ButtonStatus.closed;
+  void iconButtonEvent() {
+    iconButtonStatus == ButtonStatus.closed
+        ? setState(() => iconButtonStatus = ButtonStatus.open)
+        : setState(() => iconButtonStatus = ButtonStatus.closed);
+  }
+
+  //onPressed TextButton
   ButtonStatus textButtonStatus = ButtonStatus.closed;
   void textButtonEvent() {
     textButtonStatus == ButtonStatus.closed
@@ -48,7 +56,7 @@ class _StateEventState extends State<StateEvent> {
           child: Column(
             spacing: 20,
             children: [
-              //Elevated Button
+              // 1. Elevated Button
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(),
@@ -77,7 +85,7 @@ class _StateEventState extends State<StateEvent> {
                           textStyle: TextStyle(fontSize: 20),
                         ),
                         child: Text(
-                          elevatedButtonStatus == ButtonStatus.open
+                          elevatedButtonStatus == ButtonStatus.closed
                               ? 'Buka'
                               : 'Tutup',
                         ),
@@ -86,7 +94,7 @@ class _StateEventState extends State<StateEvent> {
                         Column(
                           children: [
                             Text(
-                              "Halo, Saya ini WaPres-mu!",
+                              "Halo, Saya ini WaPres-mu! 🗿",
                               style: TextStyle(fontSize: 24),
                             ),
                             Image.asset('assets/images/gibs.png'),
@@ -96,7 +104,47 @@ class _StateEventState extends State<StateEvent> {
                   ),
                 ),
               ),
-              //TextButton
+              // 2. IconButton
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: .center,
+                    children: [
+                      Text(
+                        'IconButton',
+                        textAlign: .start,
+                        style: TextStyle(
+                          fontStyle: .italic,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          iconButtonEvent();
+                        },
+                        icon: Icon(
+                          Icons.attach_money,
+                          color: iconButtonStatus == ButtonStatus.closed
+                              ? Colors.blue
+                              : Colors.red,
+                        ),
+                      ),
+                      if (iconButtonStatus == ButtonStatus.open)
+                        Text(
+                          'Kapan dollar turun wok? 😡',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // 3. TextButton
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(),
