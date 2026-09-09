@@ -34,6 +34,9 @@ class _StateEventState extends State<StateEvent> {
         : setState(() => textButtonStatus = ButtonStatus.closed);
   }
 
+  //Event Gesture Detector
+  int gestureDetectorNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -234,10 +237,63 @@ class _StateEventState extends State<StateEvent> {
                         InkWell(
                           onTap: () => print('Sentuhan terdeteksi'),
                           child: Container(
-                            height: 200,
-                            width: 200,
+                            height: 100,
+                            width: 300,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.blue),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // 4. Inkwell
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisAlignment: .center,
+                      children: [
+                        Text(
+                          'Gesture Detector',
+                          textAlign: .start,
+                          style: TextStyle(
+                            fontStyle: .italic,
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            print('Sentuhan terdeteksi');
+                            setState(() => gestureDetectorNumber++);
+                          },
+                          onDoubleTap: () {
+                            print('Ditekan 2x');
+                            setState(
+                              () => gestureDetectorNumber =
+                                  gestureDetectorNumber + 2,
+                            );
+                          },
+                          onLongPress: () {
+                            print('Tahan Lama');
+                            setState(
+                              () => gestureDetectorNumber =
+                                  gestureDetectorNumber + 3,
+                            );
+                          },
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.blue),
+                            ),
+                            child: Center(
+                              child: Text('$gestureDetectorNumber'),
                             ),
                           ),
                         ),
