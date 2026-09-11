@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/Switch_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/switch_input.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/checkbox_input.dart';
 
 class FormInputNavigasi extends StatefulWidget {

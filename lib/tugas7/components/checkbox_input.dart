@@ -22,18 +22,20 @@ class _CheckboxInputState extends State<CheckboxInput> {
               onChanged: (bool? value) =>
                   setState(() => checkboxState = !checkboxState),
             ),
-            Text('Saya menyetujui semua persyaratan yang berlaku'),
+            Text(
+              !checkboxState ? 'Join KOPDES 🤔' : 'KOPDES! SHAPPP 🥴',
+              style: TextStyle(fontSize: 18),
+            ),
           ],
         ),
-        checkboxState
-            ? Text(
-                'Nah, gaskan!!!!!!!!',
-                style: TextStyle(color: Colors.green, fontSize: 20),
-              )
-            : Text(
-                'Klik setuju dulu lah bejir',
-                style: TextStyle(color: Colors.red, fontSize: 20),
-              ),
+        if (checkboxState)
+          Text(
+            'Selamat Datang Di KOPDES Merah Putih',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 255, 0, 0),
+              fontSize: 20,
+            ),
+          ),
         Divider(),
       ],
     );
