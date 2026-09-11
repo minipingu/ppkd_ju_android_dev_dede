@@ -10,6 +10,7 @@ class FormInputNavigasi extends StatefulWidget {
 class _FormInputNavigasiState extends State<FormInputNavigasi> {
   bool checkboxState = false;
   bool switchState = false;
+  List programUtamaPemerintah = ['MBG', 'KOPDES'];
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +48,7 @@ class _FormInputNavigasiState extends State<FormInputNavigasi> {
                   color: switchState ? Colors.black : Colors.white,
                 ),
                 child: Column(
+                  mainAxisAlignment: .center,
                   children: [
                     Switch(
                       value: switchState,
@@ -55,11 +57,11 @@ class _FormInputNavigasiState extends State<FormInputNavigasi> {
                     ),
                     switchState
                         ? Text(
-                            'KAU YANG GELAP',
+                            'KAU  YANG GELAP 🫵🏻',
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           )
                         : Text(
-                            'gelap?',
+                            'Indonesia gelap? 🤔',
                             style: TextStyle(fontSize: 20, color: Colors.black),
                           ),
                   ],
