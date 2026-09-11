@@ -21,6 +21,7 @@ class _SwitchInputState extends State<SwitchInput> {
       child: Column(
         mainAxisAlignment: .center,
         children: [
+          if (!switchState) Divider(),
           Switch(
             value: switchState,
             onChanged: (value) => setState(() => switchState = !switchState),
@@ -34,6 +35,7 @@ class _SwitchInputState extends State<SwitchInput> {
                   'Indonesia gelap? 🤔',
                   style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
+          if (!switchState) Divider(),
         ],
       ),
     );
