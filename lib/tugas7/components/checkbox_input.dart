@@ -8,7 +8,7 @@ class CheckboxInput extends StatefulWidget {
 }
 
 class _CheckboxInputState extends State<CheckboxInput> {
-  bool checkboxState = false;
+  bool _checkboxState = false;
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +18,20 @@ class _CheckboxInputState extends State<CheckboxInput> {
         Row(
           children: [
             Checkbox(
-              value: checkboxState,
+              value: _checkboxState,
               onChanged: (bool? value) =>
-                  setState(() => checkboxState = !checkboxState),
+                  setState(() => _checkboxState = !_checkboxState),
             ),
             Text(
-              !checkboxState ? 'Join KOPDES 🤔' : 'KOPDES! SHAPPP 🥴',
+              !_checkboxState ? 'Join KOPDES 🤔' : 'KOPDES! SHAPPP 🥴',
               style: TextStyle(fontSize: 18),
             ),
           ],
         ),
-        if (checkboxState)
+        if (_checkboxState)
           Text(
             'Selamat Datang Di KOPDES Merah Putih',
-            style: TextStyle(
-              color: const Color.fromARGB(255, 255, 0, 0),
-              fontSize: 20,
-            ),
+            style: TextStyle(color: Colors.red, fontSize: 20),
           ),
         Divider(),
       ],
