@@ -16,7 +16,11 @@ class _ShowDatePickerInputState extends State<ShowDatePickerInput> {
   Future<void> _selectDate() async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: DateTime(2000),
+      initialDate: DateTime(
+        selectedDate == null ? 2000 : selectedDate!.year,
+        selectedDate!.month,
+        selectedDate!.day,
+      ),
       firstDate: DateTime(1900),
       lastDate: DateTime(2100),
     );
@@ -38,7 +42,7 @@ class _ShowDatePickerInputState extends State<ShowDatePickerInput> {
           children: [
             Text(
               selectedDate != null
-                  ? 'Tanggal lahir : ${selectedDate!.day} ${listMonths[(selectedDate!.month) + 1]} ${selectedDate!.year}'
+                  ? 'Tanggal lahir : ${selectedDate!.day} ${listMonths[(selectedDate!.month) - 1]} ${selectedDate!.year}'
                   : 'Belum memilih tanggal',
               style: TextStyle(fontSize: 20),
             ),
