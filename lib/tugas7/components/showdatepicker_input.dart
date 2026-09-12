@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/button_x.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/divider_text_divider.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/months_list.dart';
 
 class ShowDatePickerInput extends StatefulWidget {
   const ShowDatePickerInput({super.key});
@@ -31,10 +33,18 @@ class _ShowDatePickerInputState extends State<ShowDatePickerInput> {
       spacing: 20,
       children: <Widget>[
         DividerTextDivider(title: 'Tanggal lahir'),
-        Text(
-          selectedDate != null
-              ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'
-              : 'No date selected',
+        Row(
+          mainAxisAlignment: .center,
+          children: [
+            Text(
+              selectedDate != null
+                  ? 'Tanggal lahir : ${selectedDate!.day} ${listMonths[(selectedDate!.month) + 1]} ${selectedDate!.year}'
+                  : 'Belum memilih tanggal',
+              style: TextStyle(fontSize: 20),
+            ),
+            if (selectedDate != null)
+              ButtonX(onTap: () => setState(() => selectedDate = null)),
+          ],
         ),
         OutlinedButton(
           onPressed: _selectDate,

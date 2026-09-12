@@ -17,7 +17,7 @@ class _SwitchInputState extends State<SwitchInput> {
       width: .infinity,
       height: 200,
       decoration: BoxDecoration(
-        color: switchState ? Colors.black : Colors.white,
+        color: switchState ? Colors.black : Colors.transparent,
       ),
       child: Column(
         mainAxisAlignment: .center,

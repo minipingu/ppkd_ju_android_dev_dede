@@ -44,7 +44,7 @@ class _DropdownInputState extends State<DropdownInput> {
               }).toList(),
             ),
             if (selected != null)
-              ButtonX(onTap: (nullIt) => setState(() => selected = null)),
+              ButtonX(onTap: () => setState(() => selected = null)),
             Expanded(child: Container()),
           ],
         ),

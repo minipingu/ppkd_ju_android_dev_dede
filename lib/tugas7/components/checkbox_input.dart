@@ -17,6 +17,7 @@ class _CheckboxInputState extends State<CheckboxInput> {
       children: [
         DividerTextDivider(title: 'Syarat dan ketentuan'),
         Row(
+          mainAxisAlignment: .center,
           children: [
             Checkbox(
               value: _checkboxState,
