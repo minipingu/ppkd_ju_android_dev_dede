@@ -16,20 +16,28 @@ class _DropdownInputState extends State<DropdownInput> {
     return Column(
       children: [
         Divider(color: Colors.red),
-        DropdownButton<String>(
-          value: selected,
-          icon: Icon(Icons.arrow_downward),
-          style: TextStyle(color: Colors.deepPurple),
-          underline: Container(height: 2, color: Colors.deepPurpleAccent),
-          onChanged: (String? value) {
-            // This is called when the user selects an item.
-            setState(() {
-              selected = value!;
-            });
-          },
-          items: data.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(value: value, child: Text(value));
-          }).toList(),
+        Row(
+          children: [
+            Expanded(child: Container()),
+            DropdownButton<String>(
+              value: selected,
+              icon: Icon(Icons.arrow_downward),
+              style: TextStyle(color: Colors.deepPurple),
+              underline: Container(height: 2, color: Colors.deepPurpleAccent),
+              onChanged: (String? value) {
+                setState(() {
+                  selected = value;
+                });
+              },
+              items: data.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+            Expanded(child: Container()),
+          ],
         ),
         if (selected != null) Text('Program pemerintah??? $selected'),
         Divider(color: Colors.red),
