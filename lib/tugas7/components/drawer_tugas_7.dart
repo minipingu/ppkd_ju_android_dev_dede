@@ -1,90 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/dropdown_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showdatepicker_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showtimepicker_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/switch_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/checkbox_input.dart';
 
 class DrawerTugas7 extends StatefulWidget {
-  const DrawerTugas7({super.key, required this.title});
-
-  final String title;
+  const new({super.key});
 
   @override
   State<DrawerTugas7> createState() => _DrawerTugas7State();
 }
 
 class _DrawerTugas7State extends State<DrawerTugas7> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-  );
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Home', style: optionStyle),
-    Text('Index 1: Business', style: optionStyle),
-    Text('Index 2: School', style: optionStyle),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final Map<String, Widget> pages = {
+    'Checkbox': const CheckboxInput(),
+    'Switch': const SwitchInput(),
+    'Dropdown': const DropdownInput(),
+    'Date Picker': const ShowDatePickerInput(),
+    'Time Picker': const ShowTimePickerInput(),
+  };
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
-      ),
-      body: Center(child: _widgetOptions[_selectedIndex]),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('OHKE GAS OHKE GASSS'),
-            ),
-            ListTile(
-              title: const Text('Home'),
-              selected: _selectedIndex == 0,
-              onTap: () {
-                // Update the state of the app
-                _onItemTapped(0);
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Business'),
-              selected: _selectedIndex == 1,
-              onTap: () {
-                // Update the state of the app
-                _onItemTapped(1);
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('School'),
-              selected: _selectedIndex == 2,
-              onTap: () {
-                // Update the state of the app
-                _onItemTapped(2);
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(color: Colors.blue),
+            child: Text('OHKE GAS OHKE GASSS'),
+          ),
+          ListTile(
+            title: const Text('Home'),
+            // selected: _selectedIndex == 0,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
     );
   }

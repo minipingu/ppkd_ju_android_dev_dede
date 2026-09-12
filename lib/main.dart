@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
       //tugas7
       home: FormInputNavigasi(),
       debugShowCheckedModeBanner: false,
+      initialRoute: '',
     );
   }
 }

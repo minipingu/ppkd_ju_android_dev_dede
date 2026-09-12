@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/drawer_tugas_7.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/dropdown_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showdatepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showtimepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/switch_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/checkbox_input.dart';
 
 class FormInputNavigasi extends StatefulWidget {
   const FormInputNavigasi({Key? key}) : super(key: key);
@@ -20,7 +15,7 @@ class _FormInputNavigasiState extends State<FormInputNavigasi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Center(child: Text('Form Input & Drawer'))),
-      drawer: DrawerTugas7(title: "Form Input & Drawer"),
+      drawer: DrawerTugas7(),
       body: ListView(
         children: [
           Column(
