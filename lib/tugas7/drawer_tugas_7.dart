@@ -4,6 +4,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showdatepicker_input.dart'
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showtimepicker_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/checkbox_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
 class DrawerTugas7 extends StatefulWidget {
   const new({super.key});
@@ -21,6 +22,9 @@ class _DrawerTugas7State extends State<DrawerTugas7> {
     'Time Picker': ShowTimePickerInput(),
   };
 
+  var mapped = tugas7Pages.entries.map((entry) => ListTile());
+  String selectedPage = '';
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -31,12 +35,16 @@ class _DrawerTugas7State extends State<DrawerTugas7> {
             decoration: BoxDecoration(color: Colors.blue),
             child: Text('OHKE GAS OHKE GASSS'),
           ),
-          ListTile(
-            title: const Text('Home'),
-            // selected: _selectedIndex == 0,
-            onTap: () {
-              Navigator.pop(context);
-            },
+          ...tugas7Pages.entries.map(
+            (route) => ListTile(
+              title: Text(route.key),
+              onTap: () {
+                Navigator.pushNamed(context, route.key);
+                setState(() {
+                  selectedPage = route.key;
+                });
+              },
+            ),
           ),
         ],
       ),
