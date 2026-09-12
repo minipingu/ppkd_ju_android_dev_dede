@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/divider_text_divider.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/months_list.dart';
+import 'package:ppkd_ju_android_dev_dede/_components/divider_text_divider.dart';
+import 'package:ppkd_ju_android_dev_dede/_components/months_list.dart';
 
 class ShowDatePickerInput extends StatefulWidget {
   const ShowDatePickerInput({super.key});

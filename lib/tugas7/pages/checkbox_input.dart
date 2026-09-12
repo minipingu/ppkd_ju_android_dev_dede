@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/app_scaffold.dart';
+import 'package:ppkd_ju_android_dev_dede/_components/app_scaffold.dart';
 
 class CheckboxInput extends StatefulWidget {
   const new({super.key});

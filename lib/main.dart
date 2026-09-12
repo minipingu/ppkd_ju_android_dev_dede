@@ -1,16 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/latihan_state/latihan_stateful.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas1/tugas_1.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas2/profil_kompleks.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas3/forminput_grid.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas4/listview_listtile.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas5/state_event.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/checkbox_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/dropdown_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/showdatepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/showtimepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/switch_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas_layouting/tugas_layouting.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,15 +33,10 @@ class MyApp extends StatelessWidget {
 
       //tugas7
       initialRoute: 'checkbox',
-      routes: {
-        'checkbox': (context) => CheckboxInput(),
-        'switch': (context) => SwitchInput(),
-        'dropdown': (context) => DropdownInput(),
-        'date-picker': (context) => ShowDatePickerInput(),
-        'time-picker': (context) => ShowTimePickerInput(),
-      },
+      routes: tugas7Pages.map(
+        (routeName, widget) => MapEntry(routeName, (context) => widget),
+      ),
       //
-
       debugShowCheckedModeBanner: false,
     );
   }

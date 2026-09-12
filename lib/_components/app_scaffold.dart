@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/drawer_tugas_7.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/drawer_tugas_7.dart';
 
 class AppScaffold extends StatelessWidget {
   final String title;

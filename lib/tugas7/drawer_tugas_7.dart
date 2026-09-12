@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/dropdown_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/showdatepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/showtimepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/switch_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/checkbox_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/pages/dropdown_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showdatepicker_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showtimepicker_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/pages/checkbox_input.dart';
 
 class DrawerTugas7 extends StatefulWidget {
   const new({super.key});
@@ -14,11 +14,11 @@ class DrawerTugas7 extends StatefulWidget {
 
 class _DrawerTugas7State extends State<DrawerTugas7> {
   final Map<String, Widget> pages = {
-    'Checkbox': const CheckboxInput(),
-    'Switch': const SwitchInput(),
-    'Dropdown': const DropdownInput(),
-    'Date Picker': const ShowDatePickerInput(),
-    'Time Picker': const ShowTimePickerInput(),
+    'Checkbox': CheckboxInput(),
+    'Switch': SwitchInput(),
+    'Dropdown': DropdownInput(),
+    'Date Picker': ShowDatePickerInput(),
+    'Time Picker': ShowTimePickerInput(),
   };
 
   @override
