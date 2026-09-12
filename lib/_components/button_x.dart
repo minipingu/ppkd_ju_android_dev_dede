@@ -14,7 +14,7 @@ class ButtonX extends StatelessWidget {
       onPressed: () {
         onTap(null);
       },
-      icon: Text('❌', style: TextStyle()),
+      icon: Text('❌', style: TextStyle(fontSize: 10)),
     );
   }
 }

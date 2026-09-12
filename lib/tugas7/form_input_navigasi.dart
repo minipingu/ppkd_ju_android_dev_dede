@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/dropdown_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showdatepicker_input.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/switch_input.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/checkbox_input.dart';
 
@@ -19,7 +20,14 @@ class _FormInputNavigasiState extends State<FormInputNavigasi> {
       appBar: AppBar(title: Center(child: Text('Form Input & Drawer'))),
       body: ListView(
         children: [
-          Column(children: [CheckboxInput(), SwitchInput(), DropdownInput()]),
+          Column(
+            children: [
+              CheckboxInput(),
+              SwitchInput(),
+              DropdownInput(),
+              ShowDatePickerInput(),
+            ],
+          ),
         ],
       ),
     );
