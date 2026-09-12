@@ -6,14 +6,9 @@ import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/checkbox_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
-class DrawerTugas7 extends StatefulWidget {
-  const new({super.key});
+class DrawerTugas7 extends StatelessWidget {
+  new({super.key});
 
-  @override
-  State<DrawerTugas7> createState() => _DrawerTugas7State();
-}
-
-class _DrawerTugas7State extends State<DrawerTugas7> {
   final Map<String, Widget> pages = {
     'Checkbox': CheckboxInput(),
     'Switch': SwitchInput(),
@@ -22,8 +17,11 @@ class _DrawerTugas7State extends State<DrawerTugas7> {
     'Time Picker': ShowTimePickerInput(),
   };
 
-  var mapped = tugas7Pages.entries.map((entry) => ListTile());
-  String selectedPage = '';
+  String menuTitleConverter(String title) {
+    var splittedText = title.split('-').join(' ');
+    final result = splittedText[0].toUpperCase() + splittedText.substring(1);
+    return result;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +31,19 @@ class _DrawerTugas7State extends State<DrawerTugas7> {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(color: Colors.blue),
-            child: Text('OHKE GAS OHKE GASSS'),
+            child: Text(
+              'OHKE GAS OHKE GASSS',
+              style: TextStyle(color: Colors.white, fontSize: 38),
+            ),
           ),
           ...tugas7Pages.entries.map(
             (route) => ListTile(
-              title: Text(route.key),
+              title: Text(
+                menuTitleConverter(route.key),
+                style: TextStyle(fontSize: 16),
+              ),
               onTap: () {
                 Navigator.pushNamed(context, route.key);
-                setState(() {
-                  selectedPage = route.key;
-                });
               },
             ),
           ),

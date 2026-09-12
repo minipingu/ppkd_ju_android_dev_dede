@@ -17,7 +17,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(title), backgroundColor: backgroundColor),
-      drawer: const DrawerTugas7(),
+      drawer: DrawerTugas7(),
       body: body,
     );
   }
