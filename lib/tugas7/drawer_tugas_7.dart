@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/dropdown_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showdatepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/showtimepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/switch_input.dart';
-import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/components/checkbox_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/dropdown_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/showdatepicker_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/showtimepicker_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/switch_input.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/tugas7/pages/checkbox_input.dart';
 
 class DrawerTugas7 extends StatefulWidget {
   const new({super.key});
