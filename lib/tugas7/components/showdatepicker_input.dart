@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/divider_text_divider.dart';
 
 class ShowDatePickerInput extends StatefulWidget {
   const ShowDatePickerInput({super.key});
@@ -29,7 +30,7 @@ class _ShowDatePickerInputState extends State<ShowDatePickerInput> {
       mainAxisSize: .min,
       spacing: 20,
       children: <Widget>[
-        Divider(),
+        DividerTextDivider(title: 'Tanggal lahir'),
         Text(
           selectedDate != null
               ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'
@@ -37,9 +38,8 @@ class _ShowDatePickerInputState extends State<ShowDatePickerInput> {
         ),
         OutlinedButton(
           onPressed: _selectDate,
-          child: const Text('Pilih Tanggal Lahir'),
+          child: const Text('Pilih Tanggal'),
         ),
-        Divider(),
       ],
     );
   }

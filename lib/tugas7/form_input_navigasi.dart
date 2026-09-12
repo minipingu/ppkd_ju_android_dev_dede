@@ -21,6 +21,7 @@ class _FormInputNavigasiState extends State<FormInputNavigasi> {
       body: ListView(
         children: [
           Column(
+            spacing: 30,
             children: [
               CheckboxInput(),
               SwitchInput(),

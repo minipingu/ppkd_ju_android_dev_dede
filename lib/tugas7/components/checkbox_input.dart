@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/divider_text_divider.dart';
 
 class CheckboxInput extends StatefulWidget {
   const new({super.key});
@@ -14,7 +15,7 @@ class _CheckboxInputState extends State<CheckboxInput> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(),
+        DividerTextDivider(title: 'Syarat dan ketentuan'),
         Row(
           children: [
             Checkbox(
@@ -33,7 +34,6 @@ class _CheckboxInputState extends State<CheckboxInput> {
             'Selamat Datang Di KOPDES Merah Putih',
             style: TextStyle(color: Colors.red, fontSize: 20),
           ),
-        Divider(),
       ],
     );
   }

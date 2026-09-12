@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/button_x.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/divider_text_divider.dart';
 
 class DropdownInput extends StatefulWidget {
   const new({super.key});
@@ -16,13 +17,16 @@ class _DropdownInputState extends State<DropdownInput> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(color: Colors.red),
-        Text('Pilih Program :'),
+        DividerTextDivider(title: 'Pilih Program'),
         Row(
           spacing: 12,
           children: [
             Expanded(child: Container()),
             DropdownButton<String>(
+              hint: Text(
+                'Pilih woi, Ga milih masuk barak 🫵🏻',
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
               value: selected,
               icon: Icon(Icons.arrow_downward),
               style: TextStyle(color: Colors.deepPurple),
@@ -57,7 +61,6 @@ class _DropdownInputState extends State<DropdownInput> {
               ],
             ),
           ),
-        Divider(color: Colors.red),
       ],
     );
   }
