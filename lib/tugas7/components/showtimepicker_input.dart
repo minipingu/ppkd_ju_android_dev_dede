@@ -18,12 +18,12 @@ class _ShowTimePickerInputState extends State<ShowTimePickerInput> {
       children: [
         DividerTextDivider(title: 'Biar ga telat trus nyanyi'),
         ElevatedButton(
-          child: selectedTime == null
-              ? Text('Pilih Waktu')
-              : Text(
-                  'Bangun pada jam ${selectedTime!.hour}:${selectedTime!.minute}',
-                  style: TextStyle(fontSize: 20),
-                ),
+          child: Text(
+            selectedTime == null
+                ? 'Pilih Waktu'
+                : 'Bangun pada jam ${selectedTime!.hour}:${selectedTime!.minute}',
+            style: TextStyle(fontSize: 16),
+          ),
           onPressed: () async {
             final TimeOfDay? time = await showTimePicker(
               context: context,

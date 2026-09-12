@@ -8,13 +8,12 @@ class ButtonX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton.filledTonal(
-      iconSize: 16,
-      padding: EdgeInsets.all(6),
+      padding: EdgeInsets.all(10),
       constraints: const BoxConstraints(),
       onPressed: () {
         onTap();
       },
-      icon: Text('❌', style: TextStyle(fontSize: 10)),
+      icon: Text('❌', style: TextStyle(fontSize: 14)),
     );
   }
 }
