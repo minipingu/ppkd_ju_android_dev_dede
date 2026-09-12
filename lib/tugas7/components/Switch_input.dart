@@ -28,7 +28,7 @@ class _SwitchInputState extends State<SwitchInput> {
           ),
           switchState
               ? Text(
-                  'KAU  YANG GELAP 🫵🏻',
+                  'KAU YANG GELAP 🫵🏻',
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               : Text(

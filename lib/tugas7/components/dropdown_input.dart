@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede_nurhidayat/_components/button_x.dart';
 
 class DropdownInput extends StatefulWidget {
   const new({super.key});
@@ -16,7 +17,9 @@ class _DropdownInputState extends State<DropdownInput> {
     return Column(
       children: [
         Divider(color: Colors.red),
+        Text('Pilih Program :'),
         Row(
+          spacing: 12,
           children: [
             Expanded(child: Container()),
             DropdownButton<String>(
@@ -32,14 +35,28 @@ class _DropdownInputState extends State<DropdownInput> {
               items: data.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value),
+                  child: Text(value, style: TextStyle(fontSize: 20)),
                 );
               }).toList(),
             ),
+            if (selected != null)
+              ButtonX(onTap: (nullIt) => setState(() => selected = null)),
             Expanded(child: Container()),
           ],
         ),
-        if (selected != null) Text('Program pemerintah??? $selected'),
+        if (selected != null)
+          RichText(
+            text: TextSpan(
+              style: TextStyle(color: Colors.black, fontSize: 20),
+              text: 'Anda memilih',
+              children: [
+                TextSpan(
+                  text: ' $selected 🥴',
+                  style: TextStyle(fontWeight: .w700),
+                ),
+              ],
+            ),
+          ),
         Divider(color: Colors.red),
       ],
     );
