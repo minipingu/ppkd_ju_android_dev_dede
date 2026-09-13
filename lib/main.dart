@@ -34,21 +34,21 @@ class MyApp extends StatelessWidget {
       //tugas5
       // home: StateEvent(),
 
-      //tugas7
-      // initialRoute: 'checkbox',
-      // routes: Map.fromEntries(
-      //   tugas7Pages.map(
-      //     (page) => MapEntry(page.navigation, (context) => page.route),
-      //   ),
-      // ),
+      // tugas7
+      initialRoute: 'checkbox',
+      routes: Map.fromEntries(
+        tugas7Pages.map(
+          (page) => MapEntry(page.navigation, (context) => page.route),
+        ),
+      ),
 
       // nyoba
       // bottom nav 1
       // home: BottomNav1(),
       // home: BottomNav2(),
       // home: BottomNav3(),
-      home: BottomNav4(),
-      debugShowCheckedModeBanner: false,
+      // home: BottomNav4(),
+      // debugShowCheckedModeBanner: false,
     );
   }
 }
