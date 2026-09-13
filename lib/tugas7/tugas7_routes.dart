@@ -10,8 +10,16 @@ typedef NavItem = ({String navigation, IconData icon, Widget route});
 
 final List<NavItem> tugas7Pages = [
   (navigation: 'checkbox', icon: Icons.check, route: CheckboxInput()),
-  (navigation: 'switch', icon: Icons.check, route: SwitchInput()),
-  (navigation: 'dropdown', icon: Icons.check, route: DropdownInput()),
-  (navigation: 'date-picker', icon: Icons.check, route: ShowDatePickerInput()),
-  (navigation: 'time-picker', icon: Icons.check, route: ShowTimePickerInput()),
+  (navigation: 'switch', icon: Icons.switch_left, route: SwitchInput()),
+  (navigation: 'dropdown', icon: Icons.arrow_downward, route: DropdownInput()),
+  (
+    navigation: 'date-picker',
+    icon: Icons.date_range,
+    route: ShowDatePickerInput(),
+  ),
+  (
+    navigation: 'time-picker',
+    icon: Icons.access_time,
+    route: ShowTimePickerInput(),
+  ),
 ];
