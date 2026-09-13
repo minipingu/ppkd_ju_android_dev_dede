@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
-class DrawerTugas7 extends StatelessWidget {
+class DrawerTugas7 extends StatefulWidget {
   const new({super.key});
 
+  @override
+  State<DrawerTugas7> createState() => _DrawerTugas7State();
+}
+
+class _DrawerTugas7State extends State<DrawerTugas7> {
   String menuTitleConverter(String title) {
     var splittedText = title.split('-').join(' ');
     final result = splittedText[0].toUpperCase() + splittedText.substring(1);
@@ -23,8 +28,11 @@ class DrawerTugas7 extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 38),
             ),
           ),
-          ...tugas7Pages.map(
-            (page) => ListTile(
+          ...tugas7Pages.map((page) {
+            final currentRoute = ModalRoute.of(context)?.settings.name;
+
+            return ListTile(
+              selected: currentRoute == page.navigation,
               leading: Icon(page.icon),
               title: Text(
                 menuTitleConverter(page.navigation),
@@ -33,8 +41,8 @@ class DrawerTugas7 extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, page.navigation);
               },
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
