@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/pages/dropdown_input.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showdatepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showtimepicker_input.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/pages/checkbox_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
 class DrawerTugas7 extends StatelessWidget {
-  new({super.key});
-
-  final Map<String, Widget> pages = {
-    'Checkbox': CheckboxInput(),
-    'Switch': SwitchInput(),
-    'Dropdown': DropdownInput(),
-    'Date Picker': ShowDatePickerInput(),
-    'Time Picker': ShowTimePickerInput(),
-  };
+  const new({super.key});
 
   String menuTitleConverter(String title) {
     var splittedText = title.split('-').join(' ');
@@ -36,14 +23,15 @@ class DrawerTugas7 extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 38),
             ),
           ),
-          ...tugas7Pages.entries.map(
-            (route) => ListTile(
+          ...tugas7Pages.map(
+            (page) => ListTile(
+              leading: Icon(page.icon),
               title: Text(
-                menuTitleConverter(route.key),
+                menuTitleConverter(page.navigation),
                 style: TextStyle(fontSize: 16),
               ),
               onTap: () {
-                Navigator.pushNamed(context, route.key);
+                Navigator.pushNamed(context, page.navigation);
               },
             ),
           ),

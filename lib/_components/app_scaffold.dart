@@ -16,6 +16,7 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(title: Text(title), backgroundColor: backgroundColor),
       drawer: DrawerTugas7(),
       body: body,

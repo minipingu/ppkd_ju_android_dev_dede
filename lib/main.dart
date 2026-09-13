@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tugasssssssss',
-
       //tugas 1
       // home: TugasFlutter1(),
 
@@ -33,10 +32,11 @@ class MyApp extends StatelessWidget {
 
       //tugas7
       initialRoute: 'checkbox',
-      routes: tugas7Pages.map(
-        (routeName, widget) => MapEntry(routeName, (context) => widget),
+      routes: Map.fromEntries(
+        tugas7Pages.map(
+          (page) => MapEntry(page.navigation, (context) => page.route),
+        ),
       ),
-      //
       debugShowCheckedModeBanner: false,
     );
   }

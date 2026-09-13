@@ -16,12 +16,9 @@ class _SwitchInputState extends State<SwitchInput> {
     return AppScaffold(
       title: 'Auk ah gelap',
       backgroundColor: switchState ? Colors.black : Colors.white,
-      body: Container(
+      body: SizedBox(
         width: .infinity,
         height: .infinity,
-        decoration: BoxDecoration(
-          color: switchState ? Colors.black : Colors.transparent,
-        ),
         child: Column(
           mainAxisAlignment: .center,
           children: [
