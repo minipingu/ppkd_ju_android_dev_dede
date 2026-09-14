@@ -8,7 +8,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
 //mencoba ala ala typescript ~_~
 typedef NavItem = ({String navigation, IconData icon, Widget route});
 
-final List<NavItem> tugas7Pages = [
+final List<NavItem> drawerRoutes = [
   (navigation: 'checkbox', icon: Icons.check, route: CheckboxInput()),
   (navigation: 'switch', icon: Icons.switch_left, route: SwitchInput()),
   (navigation: 'dropdown', icon: Icons.arrow_downward, route: DropdownInput()),
@@ -22,4 +22,9 @@ final List<NavItem> tugas7Pages = [
     icon: Icons.access_time,
     route: ShowTimePickerInput(),
   ),
+];
+
+final List<NavItem> bottomNavRoutes = [
+  (navigation: 'home', icon: Icons.home, route: CheckboxInput()),
+  (navigation: 'about', icon: Icons.question_mark, route: SwitchInput()),
 ];

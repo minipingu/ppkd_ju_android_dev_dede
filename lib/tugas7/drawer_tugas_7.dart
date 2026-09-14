@@ -28,7 +28,7 @@ class _DrawerTugas7State extends State<DrawerTugas7> {
               style: TextStyle(color: Colors.white, fontSize: 38),
             ),
           ),
-          ...tugas7Pages.map((page) {
+          ...drawerRoutes.map((page) {
             final currentRoute = ModalRoute.of(context)?.settings.name;
 
             return ListTile(
