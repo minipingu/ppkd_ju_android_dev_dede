@@ -116,9 +116,20 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
                               ), // Column
                               actions: [
                                 TextButton(
-                                  onPressed: () => Navigator.pop(context),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            HalamanTerimaKasih(
+                                              email: emailController.text,
+                                            ),
+                                      ), // MaterialPageRoute
+                                    );
+                                  },
                                   child: Text('Lanjutkan'),
-                                ), // TextButton
+                                ), // TextButtontton
                               ],
                             ), // AlertDialog
                           );
@@ -134,5 +145,24 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
         ),
       ),
     );
+  }
+}
+
+class HalamanTerimaKasih extends StatelessWidget {
+  final String email;
+  const HalamanTerimaKasih({super.key, required this.email});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Konfirmasi')),
+      body: Center(
+        child: Text(
+          'Terima kasih, $email',
+          style: TextStyle(fontSize: 18),
+          textAlign: TextAlign.center,
+        ), // Text
+      ), // Center
+    ); // Scaffold
   }
 }
