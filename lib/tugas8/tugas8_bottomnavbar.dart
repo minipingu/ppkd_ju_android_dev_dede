@@ -24,7 +24,7 @@ class _Tugas8BottomnavbarState extends State<Tugas8Bottomnavbar> {
           return BottomNavigationBarItem(icon: Icon(item.icon), label: 'Home');
         }).toList(),
       ],
-      currentIndex: _selectedIndex,
+      // currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: (val) {},
     );

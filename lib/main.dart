@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/latihan_validasi/latihan_validasi.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav1.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav2.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav3.dart';
@@ -37,12 +38,12 @@ class MyApp extends StatelessWidget {
       // home: StateEvent(),
 
       // tugas7
-      initialRoute: 'checkbox',
-      routes: Map.fromEntries(
-        drawerRoutes.map(
-          (page) => MapEntry(page.navigation, (context) => page.route),
-        ),
-      ),
+      // initialRoute: 'checkbox',
+      // routes: Map.fromEntries(
+      //   drawerRoutes.map(
+      //     (page) => MapEntry(page.navigation, (context) => page.route),
+      //   ),
+      // ),
 
       // nyoba
       // bottom nav 1
@@ -52,6 +53,9 @@ class MyApp extends StatelessWidget {
       // home: BottomNav4(),
       // home: BottomNavLatihan(),
       // home: DrawerLatihan(),
+
+      //latihan db
+      home: LoginScreenDB(),
 
       // debugShowCheckedModeBanner: false,
     );
