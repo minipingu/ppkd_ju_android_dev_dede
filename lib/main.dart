@@ -7,6 +7,7 @@ import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav4.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas8/scaffold_tugas_8.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,19 +39,17 @@ class MyApp extends StatelessWidget {
       // home: StateEvent(),
 
       // tugas7
-      initialRoute: 'checkbox',
-      routes: {
-        ...Map.fromEntries(
-          drawerRoutes.map(
-            (page) => MapEntry(page.navigation, (context) => page.route),
-          ),
-        ),
-        ...Map.fromEntries(
-          bottomNavRoutes.map(
-            (page) => MapEntry(page.navigation, (context) => page.route),
-          ),
-        ),
-      },
+      // initialRoute: 'checkbox',
+      // routes: {
+      //   ...Map.fromEntries(
+      //     drawerRoutes.map(
+      //       (page) => MapEntry(page.navigation, (context) => page.route),
+      //     ),
+      //   ),
+      // },
+
+      //tugas8
+      home: ScaffoldTugas8(),
 
       // nyoba
       // bottom nav 1

@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
-class Drawer8 extends StatefulWidget {
-  const new({super.key});
+class Drawer8 extends StatelessWidget {
+  final Function(Widget widget) onTap;
+  const new({super.key, required this.onTap});
 
-  @override
-  State<Drawer8> createState() => _Drawer8State();
-}
-
-class _Drawer8State extends State<Drawer8> {
   String menuTitleConverter(String title) {
     var splittedText = title.split('-').join(' ');
     final result = splittedText[0].toUpperCase() + splittedText.substring(1);
@@ -39,7 +35,7 @@ class _Drawer8State extends State<Drawer8> {
                 style: TextStyle(fontSize: 16),
               ),
               onTap: () {
-                Navigator.pushNamed(context, page.navigation);
+                onTap(page.route);
               },
             );
           }),
