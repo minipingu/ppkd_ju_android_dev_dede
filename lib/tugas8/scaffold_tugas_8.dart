@@ -22,7 +22,7 @@ class _ScaffoldTugas8State extends State<ScaffoldTugas8> {
       backgroundColor: backgroundColor,
       appBar: AppBar(title: Text(title), backgroundColor: backgroundColor),
       drawer: Drawer8(onTap: (widget) => setState(() {})),
-      body: body,
+      body: Center(child: if(indexBottomNav == 0),),
       bottomNavigationBar: Bottom8(onTap: (index) => setState(() {})),
     );
   }
