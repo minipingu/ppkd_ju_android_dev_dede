@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
 class Drawer8 extends StatefulWidget {
-  const new({super.key});
+  const Drawer8({super.key});
 
   @override
   State<Drawer8> createState() => _Drawer8State();
@@ -40,7 +40,7 @@ class _Drawer8State extends State<Drawer8> {
                 style: TextStyle(fontSize: 16),
               ),
               onTap: () {
-                context.go('/details');
+                context.go(page.navigation);
               },
             );
           }),

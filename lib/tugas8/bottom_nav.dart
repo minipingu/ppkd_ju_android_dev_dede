@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -9,42 +10,37 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-    fontSize: 30,
-    fontWeight: .bold,
-  );
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Halaman Beranda 1', style: optionStyle),
-    Text('Halaman cari 2', style: optionStyle),
-    Text('Halaman profil 3', style: optionStyle),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  String menuTitleConverter(String title) {
+    var splittedText = title.split('-').join(' ');
+    final result = splittedText[0].toUpperCase() + splittedText.substring(1);
+    return result;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Latihan Bottom Navigator'),
-        backgroundColor: Colors.amber,
-      ),
-      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Cari'),
-          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'Profil'),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple[800],
-        onTap: _onItemTapped,
-      ),
+    final location = GoRouterState.of(context).uri.path;
+    print(location);
+
+    final selectedIndex = bottomNavRoutes.indexWhere(
+      (page) => '/${page.navigation}' == location,
+    );
+
+    print(selectedIndex);
+
+    return BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+        ...bottomNavRoutes.map(
+          (page) => BottomNavigationBarItem(
+            icon: Icon(page.icon),
+            label: menuTitleConverter(page.navigation),
+          ),
+        ),
+      ],
+      currentIndex: selectedIndex < 0 ? 0 : selectedIndex,
+      selectedItemColor: Colors.deepPurple[800],
+      onTap: (index) {
+        context.go(bottomNavRoutes[index].navigation);
+      },
     );
   }
 }

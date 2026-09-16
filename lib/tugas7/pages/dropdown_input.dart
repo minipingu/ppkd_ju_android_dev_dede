@@ -3,7 +3,7 @@ import 'package:ppkd_ju_android_dev_dede/_components/app_scaffold.dart';
 import 'package:ppkd_ju_android_dev_dede/_components/button_x.dart';
 
 class DropdownInput extends StatefulWidget {
-  const new({super.key});
+  const DropdownInput({super.key});
 
   @override
   State<DropdownInput> createState() => _DropdownInputState();

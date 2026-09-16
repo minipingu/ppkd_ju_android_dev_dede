@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/_components/app_scaffold.dart';
 
 class ShowTimePickerInput extends StatefulWidget {
-  const new({super.key});
+  const ShowTimePickerInput({super.key});
 
   @override
   State<ShowTimePickerInput> createState() => _ShowTimePickerInputState();

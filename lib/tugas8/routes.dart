@@ -8,7 +8,7 @@ final GoRouter routerTugas8 = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const CheckboxInput();
+        return CheckboxInput();
       },
       routes: <RouteBase>[
         ...drawerRoutes.map(

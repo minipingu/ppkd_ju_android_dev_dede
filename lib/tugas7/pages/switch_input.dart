@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/_components/app_scaffold.dart';
 
 class SwitchInput extends StatefulWidget {
-  const new({super.key});
+  const SwitchInput({super.key});
 
   @override
   State<SwitchInput> createState() => _SwitchInputState();
