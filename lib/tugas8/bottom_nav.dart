@@ -41,6 +41,8 @@ class _BottomNavState extends State<BottomNav> {
       onTap: (index) {
         context.go(bottomNavRoutes[index].navigation);
       },
+      backgroundColor: Colors.transparent,
+      elevation: 0,
     );
   }
 }
