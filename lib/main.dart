@@ -39,11 +39,18 @@ class MyApp extends StatelessWidget {
 
       // tugas7
       initialRoute: 'checkbox',
-      routes: Map.fromEntries(
-        drawerRoutes.map(
-          (page) => MapEntry(page.navigation, (context) => page.route),
+      routes: {
+        ...Map.fromEntries(
+          drawerRoutes.map(
+            (page) => MapEntry(page.navigation, (context) => page.route),
+          ),
         ),
-      ),
+        ...Map.fromEntries(
+          bottomNavRoutes.map(
+            (page) => MapEntry(page.navigation, (context) => page.route),
+          ),
+        ),
+      },
 
       // nyoba
       // bottom nav 1

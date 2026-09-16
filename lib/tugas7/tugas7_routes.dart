@@ -4,6 +4,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas7/pages/dropdown_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showdatepicker_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showtimepicker_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas8/pages/about_us.dart';
 
 //mencoba ala ala typescript ~_~
 typedef NavItem = ({String navigation, IconData icon, Widget route});
@@ -26,5 +27,5 @@ final List<NavItem> drawerRoutes = [
 
 final List<NavItem> bottomNavRoutes = [
   (navigation: 'home', icon: Icons.home, route: CheckboxInput()),
-  (navigation: 'about', icon: Icons.question_mark, route: SwitchInput()),
+  (navigation: 'about', icon: Icons.question_mark, route: AboutUs()),
 ];

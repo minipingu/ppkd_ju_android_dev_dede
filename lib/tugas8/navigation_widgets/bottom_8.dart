@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 
-class Tugas8Bottomnavbar extends StatefulWidget {
-  const Tugas8Bottomnavbar({super.key});
+class Bottom8 extends StatefulWidget {
+  const Bottom8({super.key});
 
   @override
-  State<Tugas8Bottomnavbar> createState() => _Tugas8BottomnavbarState();
+  State<Bottom8> createState() => _Bottom8State();
 }
 
-class _Tugas8BottomnavbarState extends State<Tugas8Bottomnavbar> {
+class _Bottom8State extends State<Bottom8> {
   int _selectedIndex = 0;
 
   String menuTitleConverter(String title) {
@@ -19,6 +19,13 @@ class _Tugas8BottomnavbarState extends State<Tugas8Bottomnavbar> {
 
   @override
   Widget build(BuildContext context) {
+    final currentRoute = ModalRoute.of(context)?.settings.name;
+
+    final selectedIndex = bottomNavRoutes.indexWhere(
+      (item) => item.navigation == currentRoute,
+    );
+    print(selectedIndex);
+
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         ...bottomNavRoutes.map((item) {
@@ -31,11 +38,9 @@ class _Tugas8BottomnavbarState extends State<Tugas8Bottomnavbar> {
       // currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: (val) {
-        setState(() {
-          _selectedIndex = val;
-        });
+        Navigator.pushNamed(context, bottomNavRoutes[val].navigation);
       },
-      currentIndex: _selectedIndex,
+      currentIndex: selectedIndex,
     );
   }
 }

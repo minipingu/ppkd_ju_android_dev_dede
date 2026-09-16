@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/_components/app_scaffold.dart';
 
 class AboutUs extends StatefulWidget {
   const new({super.key});
@@ -10,6 +11,6 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Tentang Kami')));
+    return AppScaffold(title: 'Tentang Kami', body: Center());
   }
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/drawer_tugas_7.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas8/navigation_widgets/bottom_8.dart';
 
-class AppScaffold extends StatelessWidget {
+class ScaffoldTugas8 extends StatelessWidget {
   final String title;
   final Widget body;
   final Color? backgroundColor;
 
-  const AppScaffold({
+  const ScaffoldTugas8({
     super.key,
     required this.title,
     required this.body,
@@ -21,6 +21,7 @@ class AppScaffold extends StatelessWidget {
       appBar: AppBar(title: Text(title), backgroundColor: backgroundColor),
       drawer: DrawerTugas7(),
       body: body,
+      bottomNavigationBar: Bottom8(),
     );
   }
 }
