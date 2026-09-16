@@ -4,7 +4,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas7/pages/dropdown_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showdatepicker_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/showtimepicker_input.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/pages/switch_input.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas8/pages/about_us.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas8/about_us.dart';
 
 //mencoba ala ala typescript ~_~
 typedef NavItem = ({String navigation, IconData icon, Widget route});

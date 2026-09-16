@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/drawer_tugas_7.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas8/navigation_widgets/bottom_8.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas8/bottom_nav.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas8/drawer8.dart';
 
 class AppScaffold extends StatelessWidget {
   final String title;
@@ -19,8 +20,9 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(title: Text(title), backgroundColor: backgroundColor),
-      drawer: DrawerTugas7(),
+      drawer: Drawer8(),
       body: body,
+      bottomNavigationBar: BottomNav(),
     );
   }
 }

@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_full_screen_intent: ^0.0.8
   android_alarm_manager_plus: ^5.1.1
+  go_router: ^18.0.1
 
 dev_dependencies:
   flutter_test:

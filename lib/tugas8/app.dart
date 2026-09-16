@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas8/routes.dart';
+
+class MyApp extends StatelessWidget {
+  /// Constructs a [MyApp]
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(routerConfig: routerTugas8);
+  }
+}

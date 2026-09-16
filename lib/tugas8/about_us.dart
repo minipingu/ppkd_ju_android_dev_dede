@@ -11,6 +11,9 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(title: 'Tentang Kami', body: Center());
+    return AppScaffold(
+      title: 'Tentang Kami',
+      body: Center(child: Text('asdasd')),
+    );
   }
 }
