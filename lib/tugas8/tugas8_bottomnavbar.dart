@@ -9,6 +9,8 @@ class Tugas8Bottomnavbar extends StatefulWidget {
 }
 
 class _Tugas8BottomnavbarState extends State<Tugas8Bottomnavbar> {
+  int _selectedIndex = 0;
+
   String menuTitleConverter(String title) {
     var splittedText = title.split('-').join(' ');
     final result = splittedText[0].toUpperCase() + splittedText.substring(1);
@@ -20,13 +22,20 @@ class _Tugas8BottomnavbarState extends State<Tugas8Bottomnavbar> {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         ...bottomNavRoutes.map((item) {
-          final currentRoute = ModalRoute.of(context)?.settings.name;
-          return BottomNavigationBarItem(icon: Icon(item.icon), label: 'Home');
-        }).toList(),
+          return BottomNavigationBarItem(
+            icon: Icon(item.icon),
+            label: menuTitleConverter(item.navigation),
+          );
+        }),
       ],
       // currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],
-      onTap: (val) {},
+      onTap: (val) {
+        setState(() {
+          _selectedIndex = val;
+        });
+      },
+      currentIndex: _selectedIndex,
     );
   }
 }

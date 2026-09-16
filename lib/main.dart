@@ -38,12 +38,12 @@ class MyApp extends StatelessWidget {
       // home: StateEvent(),
 
       // tugas7
-      // initialRoute: 'checkbox',
-      // routes: Map.fromEntries(
-      //   drawerRoutes.map(
-      //     (page) => MapEntry(page.navigation, (context) => page.route),
-      //   ),
-      // ),
+      initialRoute: 'checkbox',
+      routes: Map.fromEntries(
+        drawerRoutes.map(
+          (page) => MapEntry(page.navigation, (context) => page.route),
+        ),
+      ),
 
       // nyoba
       // bottom nav 1
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
       // home: DrawerLatihan(),
 
       //latihan db
-      home: LoginScreenDB(),
+      // home: LoginScreenDB(),
 
       // debugShowCheckedModeBanner: false,
     );
