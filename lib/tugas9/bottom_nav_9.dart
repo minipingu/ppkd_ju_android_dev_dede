@@ -22,7 +22,7 @@ class _BottomNav9State extends State<BottomNav9> {
     final location = GoRouterState.of(context).uri.path;
     print(location);
 
-    final selectedIndex = tugas9BottomNav.indexWhere(
+    final selectedIndex = tugas9Routes.indexWhere(
       (page) => '/${page.navigation}' == location,
     );
 
@@ -30,9 +30,9 @@ class _BottomNav9State extends State<BottomNav9> {
 
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
-        ...tugas9BottomNav.map(
+        ...tugas9Routes.map(
           (page) => BottomNavigationBarItem(
-            icon: Icon(page.icon),
+            icon: page.icon,
             label: menuTitleConverter(page.navigation),
           ),
         ),
@@ -40,7 +40,7 @@ class _BottomNav9State extends State<BottomNav9> {
       currentIndex: selectedIndex < 0 ? 0 : selectedIndex,
       selectedItemColor: Colors.deepPurple[800],
       onTap: (index) {
-        context.go(tugas9BottomNav[index].navigation);
+        context.go(tugas9Routes[index].navigation);
       },
       backgroundColor: Colors.transparent,
       elevation: 0,

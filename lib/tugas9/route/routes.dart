@@ -12,7 +12,7 @@ final GoRouter routerTugas9 = GoRouter(
         return Tugas9Page1();
       },
       routes: <RouteBase>[
-        ...tugas9BottomNav.map(
+        ...tugas9Routes.map(
           (page) => GoRoute(
             path: page.navigation,
             builder: (BuildContext context, GoRouterState state) {
