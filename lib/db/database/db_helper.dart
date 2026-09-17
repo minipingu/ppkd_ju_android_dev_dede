@@ -1,3 +1,4 @@
+import 'package:ppkd_ju_android_dev_dede/models/user_login_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -34,5 +35,33 @@ class DBHelper {
         ''');
       },
     );
+  }
+
+  Future<bool> registerUser(UserModelSQL pengguna) async {
+    final db = await database;
+
+    try {
+      await db.insert('users', pengguna.toMap());
+      print('User registered: ${pengguna.email}');
+      return true;
+    } catch (e) {
+      print('Error registering user: $e');
+      return false;
+    }
+  }
+
+  Future<UserModelSQL?> loginUser(String email, String password) async {
+    final db = await database;
+
+    final List<Map<String, dynamic>> results = await db.query(
+      'users',
+      where: 'email = ? AND password = ?',
+      whereArgs: [email, password],
+    );
+
+    if (results.isNotEmpty) {
+      return UserModelSQL.fromMap(results.first);
+    }
+    return null;
   }
 }
