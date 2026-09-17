@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/db/database/db_helper.dart';
+import 'package:ppkd_ju_android_dev_dede/models/user_login_model.dart';
 
 class LoginScreenDB extends StatefulWidget {
   const LoginScreenDB({super.key});
@@ -8,9 +10,35 @@ class LoginScreenDB extends StatefulWidget {
 }
 
 class _LoginScreenDBState extends State<LoginScreenDB> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final userController = TextEditingController();
+  final passController = TextEditingController();
 
-  final emailController = TextEditingController();
+  void register() async {
+    final user = userController.text.trim();
+    final pass = passController.text;
+
+    if (user.isEmpty || pass.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Isi semua field!')));
+      return;
+    }
+
+    final pengguna = UserModelSQL(email: user, password: pass);
+
+    bool success = await DBHelper().registerUser(pengguna);
+
+    if (!mounted) return; // Menghindari linter warning: 'Don't use BuildContext across async gaps'
+
+    if (success) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Akun berhasil dibuat')));
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Email sudah terdaftar!')));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +70,7 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
 
                     const SizedBox(height: 32),
                     TextFormField(
-                      controller: emailController,
+                      controller: userController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Email wajib diisi';
@@ -63,6 +91,7 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
 
                     const SizedBox(height: 16),
                     TextFormField(
+                      controller: passController,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -90,7 +119,7 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Email: ${emailController.text}'),
+                                  Text('Email: ${userController.text}'),
                                 ],
                               ), // Column
                               actions: [
@@ -102,7 +131,7 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             HalamanTerimaKasih(
-                                              email: emailController.text,
+                                              email: userController.text,
                                             ),
                                       ), // MaterialPageRoute
                                     );
