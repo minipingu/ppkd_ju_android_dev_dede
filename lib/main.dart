@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
       //tugas 9 diatas
 
       //tugas10
-      home: Tugas10(),
+      // home: Tugas10(),
 
       // nyoba
       // bottom nav 1
@@ -75,8 +75,8 @@ class MyApp extends StatelessWidget {
       // home: BottomNavLatihan(),
       // home: DrawerLatihan(),
 
-      //latihan db
-      // home: LoginScreenDB(),
+      //latihan db, sekarang sqflite
+      home: LoginScreenDB(),
 
       // debugShowCheckedModeBanner: false,
     );

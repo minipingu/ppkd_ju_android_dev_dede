@@ -56,7 +56,7 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
 
     if (pengguna != null) {
       Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (_) => HalamanTerimaKasih(email: user)),
+        MaterialPageRoute(builder: (_) => HalamanTerimaKasih(nama: user)),
         (route) => false,
       );
     } else {
@@ -131,46 +131,90 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
                     ),
 
                     const SizedBox(height: 24),
-
-                    // =========================
-                    // BUTTON
-                    // =========================
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          showDialog(
-                            context: context,
-                            builder: (_) => AlertDialog(
-                              title: Text('Data '),
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Email: ${userController.text}'),
+                    // Login
+                    SizedBox(
+                      width: .infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          login(userController.text);
+                          if (_formKey.currentState!.validate()) {
+                            showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: Text('Data '),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Email: ${userController.text}'),
+                                  ],
+                                ), // Column
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              HalamanTerimaKasih(
+                                                nama: userController.text,
+                                              ),
+                                        ), // MaterialPageRoute
+                                      );
+                                    },
+                                    child: Text('Lanjutkan'),
+                                  ), // TextButtontton
                                 ],
-                              ), // Column
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            HalamanTerimaKasih(
-                                              email: userController.text,
-                                            ),
-                                      ), // MaterialPageRoute
-                                    );
-                                  },
-                                  child: Text('Lanjutkan'),
-                                ), // TextButtontton
-                              ],
-                            ), // AlertDialog
-                          );
-                        }
-                      },
-                      child: const Text('Login'),
+                              ), // AlertDialog
+                            );
+                          }
+                        },
+                        child: const Text('Login'),
+                      ),
+                    ),
+                    //Register
+                    SizedBox(
+                      width: .infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            register();
+                            //   showDialog(
+                            //     context: context,
+                            //     builder: (_) => AlertDialog(
+                            //       title: Text('Data '),
+                            //       content: Column(
+                            //         mainAxisSize: MainAxisSize.min,
+                            //         crossAxisAlignment: CrossAxisAlignment.start,
+                            //         children: [
+                            //           Text('Email: ${userController.text}'),
+                            //         ],
+                            //       ), // Column
+                            //       actions: [
+                            //         TextButton(
+                            //           onPressed: () {
+                            //             Navigator.pop(context);
+                            //             Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                 builder: (context) =>
+                            //                     HalamanTerimaKasih(
+                            //                       nama: userController.text,
+                            //                     ),
+                            //               ), // MaterialPageRoute
+                            //             );
+                            //           },
+                            //           child: Text('Lanjutkan'),
+                            //         ), // TextButtontton
+                            //       ],
+                            //     ), // AlertDialog
+                            //   );
+                            // }
+                          }
+                        },
+                        child: const Text('Register'),
+                      ),
                     ),
                   ],
                 ),
@@ -184,8 +228,8 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
 }
 
 class HalamanTerimaKasih extends StatelessWidget {
-  final String email;
-  const HalamanTerimaKasih({super.key, required this.email});
+  final String nama;
+  const HalamanTerimaKasih({super.key, required this.nama});
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +237,7 @@ class HalamanTerimaKasih extends StatelessWidget {
       appBar: AppBar(title: Text('Konfirmasi')),
       body: Center(
         child: Text(
-          'Terima kasih, $email',
+          'Terima kasih, $nama',
           style: TextStyle(fontSize: 18),
           textAlign: TextAlign.center,
         ), // Text
