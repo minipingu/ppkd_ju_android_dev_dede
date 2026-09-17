@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/views/login.dart';
 
@@ -20,8 +21,9 @@ class _SplashScreen11State extends State<SplashScreen11> {
 
   void goToLogin() async {
     await Future.delayed(Duration(seconds: 3));
+    if (!mounted) return;
     if (PreferenceHandler.isLogin == true) {
-      context.pushAndRemoveAll(HalamanTerimaKasih(email: "email"));
+      context.go('home');
     } else {
       context.pushAndRemoveAll(Login11());
     }

@@ -1,31 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/latihan_validasi/latihan_validasi.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav1.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav2.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav3.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav4.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav_latihan.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas10/tugas10.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/views/splash_screen.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas8/app.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas9/app.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas9/pages/tugas9_page1.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11/tugas11.dart';
 
+// void main() {
+//   runApp(const MyApp());
+//   // tugas8
+//   // runApp(const Tugas8());
+
+//   // tugas9
+//   // runApp(const Tugas9());
+// }
+
+//Tugas 11
 void main() async {
   // intinya kalau pakai async/await harus ada ini :
   WidgetsFlutterBinding.ensureInitialized();
   //
   await PreferenceHandler.init();
-  runApp(const MyApp());
-
-  // tugas8
-  // runApp(const Tugas8());
-
-  // tugas9
-  // runApp(const Tugas9());
+  runApp(const Tugas11());
 }
 
 class MyApp extends StatelessWidget {
@@ -73,7 +65,7 @@ class MyApp extends StatelessWidget {
       // home: Tugas10(),
 
       //tugas11
-      home: SplashScreen11(),
+      //tugas11 diatas
 
       // nyoba
       // bottom nav 1

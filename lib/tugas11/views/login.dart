@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/navigator/navigator.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11/views/home.dart';
 
 class Login11 extends StatefulWidget {
   const Login11({super.key});
@@ -100,9 +101,7 @@ class _Login11State extends State<Login11> {
                                       context.pop();
                                       PreferenceHandler.setLogin(true);
                                       context.push(
-                                        HalamanTerimaKasih(
-                                          email: emailController.text,
-                                        ),
+                                        Home(email: emailController.text),
                                       );
                                     },
                                     child: Text('Lanjutkan'),
@@ -126,43 +125,5 @@ class _Login11State extends State<Login11> {
         ),
       ),
     );
-  }
-}
-
-class HalamanTerimaKasih extends StatelessWidget {
-  final String email;
-  const HalamanTerimaKasih({super.key, required this.email});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Konfirmasi')),
-      body: Column(
-        children: [
-          Center(
-            child: Text(
-              'Terima kasih, $email',
-              style: TextStyle(fontSize: 18),
-              textAlign: TextAlign.center,
-            ), // Text
-          ),
-
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                PreferenceHandler.logOut();
-                context.pushAndRemoveAll(Login11());
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
-                // textStyle: TextStyle(color: Colors.white),
-              ),
-              child: Text("Logout"),
-            ),
-          ),
-        ],
-      ), // Center
-    ); // Scaffold
   }
 }

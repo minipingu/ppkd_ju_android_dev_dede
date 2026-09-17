@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/views/splash_screen.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas9/pages/tugas9_page1.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/route/tugas9_routes.dart';
 
-final GoRouter routerTugas9 = GoRouter(
+final GoRouter routing11 = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return SplashScreen11();
+        return Tugas9Page1();
       },
       routes: <RouteBase>[
         ...tugas9Routes.map(
