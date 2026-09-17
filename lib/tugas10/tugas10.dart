@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
-class LoginScreenDB extends StatefulWidget {
-  const LoginScreenDB({super.key});
+class Tugas10 extends StatefulWidget {
+  const Tugas10({super.key});
 
   @override
-  State<LoginScreenDB> createState() => _LoginScreenDBState();
+  State<Tugas10> createState() => _Tugas10State();
 }
 
-class _LoginScreenDBState extends State<LoginScreenDB> {
+class _Tugas10State extends State<Tugas10> {
   final _formKey = GlobalKey<FormState>();
 
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
+  final phoneNumberController = TextEditingController();
+  final colorController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +28,46 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.lock, size: 80, color: Colors.blue),
+                    SizedBox(
+                      height: 120,
+                      child: ClipRRect(
+                        borderRadius: BorderRadiusGeometry.circular(100),
+                        child: Image.asset('assets/images/nyawit2.png'),
+                      ),
+                    ),
                     const SizedBox(height: 24),
                     const Text(
-                      'Login',
+                      'Daftar My Sawit',
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 255, 123, 0),
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const Text(
-                      'Silahkan masuk ke akun Anda',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-
                     const SizedBox(height: 32),
+                    // Nama
+                    TextFormField(
+                      controller: nameController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Nama wajib diisi';
+                        } else if (!value.contains(RegExp(r'^[a-zA-Z]+$'))) {
+                          return 'Nama hanya boleh alfabet';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        labelText: 'Nama',
+                        hintText: 'Masukkan nama',
+                        prefixIcon: const Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    //Email
                     TextFormField(
                       controller: emailController,
                       validator: (value) {
@@ -60,25 +87,42 @@ class _LoginScreenDBState extends State<LoginScreenDB> {
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 16),
+                    //Phone
                     TextFormField(
-                      obscureText: true,
+                      controller: phoneNumberController,
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        hintText: 'Masukkan password',
-                        prefixIcon: const Icon(Icons.lock),
+                        labelText: 'Nomor Handphone',
+                        hintText: 'Masukkan Nomor',
+                        prefixIcon: const Icon(Icons.phone),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
                     ),
 
+                    const SizedBox(height: 16),
+                    // Warna Kesukaan
+                    TextFormField(
+                      controller: colorController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Nama wajib diisi';
+                        } else if (!value.contains(RegExp(r'^[a-zA-Z]+$'))) {
+                          return 'Nama hanya boleh alfabet';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        labelText: 'Nama',
+                        hintText: 'Masukkan nama',
+                        prefixIcon: const Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 24),
-
-                    // =========================
-                    // BUTTON
-                    // =========================
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {

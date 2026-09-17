@@ -6,6 +6,7 @@ import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav3.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav4.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas10/tugas10.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas8/app.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/app.dart';
@@ -16,7 +17,7 @@ void main() {
   // tugas8
   // runApp(const Tugas8());
   // tugas9
-  runApp(const Tugas9());
+  // runApp(const Tugas9());
 }
 
 class MyApp extends StatelessWidget {
@@ -59,6 +60,9 @@ class MyApp extends StatelessWidget {
 
       //tugas9
       //tugas 9 diatas
+
+      //tugas10
+      home: Tugas10(),
 
       // nyoba
       // bottom nav 1
