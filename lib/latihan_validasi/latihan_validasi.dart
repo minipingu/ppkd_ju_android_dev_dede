@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/db/database/db_helper.dart';
-import 'package:ppkd_ju_android_dev_dede/models/user_login_model.dart';
+import 'package:ppkd_ju_android_dev_dede/latihan_sqflite/db/database/db_helper.dart';
+import 'package:ppkd_ju_android_dev_dede/latihan_sqflite/models/user_login_model.dart';
 
 class LoginScreenDB extends StatefulWidget {
   const LoginScreenDB({super.key});

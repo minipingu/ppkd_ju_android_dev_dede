@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11/views/login.dart';
+
+import '../navigator/navigator.dart';
+
+class SplashScreen11 extends StatefulWidget {
+  const SplashScreen11({super.key});
+
+  @override
+  State<SplashScreen11> createState() => _SplashScreen11State();
+}
+
+class _SplashScreen11State extends State<SplashScreen11> {
+  @override
+  void initState() {
+    super.initState();
+    goToLogin();
+  }
+
+  void goToLogin() async {
+    await Future.delayed(Duration(seconds: 3));
+    if (PreferenceHandler.isLogin == true) {
+      context.pushAndRemoveAll(HalamanTerimaKasih(email: "email"));
+    } else {
+      context.pushAndRemoveAll(Login11());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(28.0),
+        child: Center(child: Image.asset("assets/images/nyawit.png")),
+      ),
+    );
+  }
+}

@@ -1,4 +1,4 @@
-import 'package:ppkd_ju_android_dev_dede/models/user_login_model.dart';
+import 'package:ppkd_ju_android_dev_dede/latihan_sqflite/models/user_login_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 

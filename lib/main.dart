@@ -7,12 +7,18 @@ import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav4.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas10/tugas10.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11/views/splash_screen.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas8/app.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/app.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/pages/tugas9_page1.dart';
 
-void main() {
+void main() async {
+  // intinya kalau pakai async/await harus ada ini :
+  WidgetsFlutterBinding.ensureInitialized();
+  //
+  await PreferenceHandler.init();
   runApp(const MyApp());
 
   // tugas8
@@ -66,6 +72,9 @@ class MyApp extends StatelessWidget {
       //tugas10
       // home: Tugas10(),
 
+      //tugas11
+      home: SplashScreen11(),
+
       // nyoba
       // bottom nav 1
       // home: BottomNav1(),
@@ -76,7 +85,7 @@ class MyApp extends StatelessWidget {
       // home: DrawerLatihan(),
 
       //latihan db, sekarang sqflite
-      home: LoginScreenDB(),
+      // home: LoginScreenDB(),
 
       // debugShowCheckedModeBanner: false,
     );
