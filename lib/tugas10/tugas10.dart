@@ -114,9 +114,9 @@ class _Tugas10State extends State<Tugas10> {
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'Nama',
-                        hintText: 'Masukkan nama',
-                        prefixIcon: const Icon(Icons.person),
+                        labelText: 'Warna Kesukaan',
+                        hintText: 'Masukkan warna',
+                        prefixIcon: const Icon(Icons.color_lens),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -172,8 +172,17 @@ class _Tugas10State extends State<Tugas10> {
 }
 
 class HalamanTerimaKasih extends StatelessWidget {
+  final String nama;
   final String email;
-  const HalamanTerimaKasih({super.key, required this.email});
+  final String phone;
+  final String color;
+  const HalamanTerimaKasih({
+    super.key,
+    required this.nama,
+    required this.email,
+    required this.phone,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
