@@ -9,12 +9,12 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Konfirmasi')),
+      appBar: AppBar(title: Text('Home')),
       body: Column(
         children: [
           Center(
             child: Text(
-              'Terima kasih, $email',
+              'Home Screen, $email',
               style: TextStyle(fontSize: 18),
               textAlign: TextAlign.center,
             ), // Text

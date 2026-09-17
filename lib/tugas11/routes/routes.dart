@@ -5,7 +5,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas11/views/login.dart';
 //mencoba ala ala typescript ~_~
 typedef NavItem = ({String navigation, Widget route});
 
-final List<NavItem> tugas9Routes = [
+final List<NavItem> routes11 = [
   (navigation: 'home', route: Home()),
   (navigation: 'login', route: Login11()),
 ];

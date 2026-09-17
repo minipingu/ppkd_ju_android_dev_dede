@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/navigator/navigator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/views/home.dart';
 
 class Login11 extends StatefulWidget {
   const Login11({super.key});
@@ -98,11 +97,8 @@ class _Login11State extends State<Login11> {
                                 actions: [
                                   TextButton(
                                     onPressed: () {
-                                      context.pop();
                                       PreferenceHandler.setLogin(true);
-                                      context.push(
-                                        Home(email: emailController.text),
-                                      );
+                                      context.go('home');
                                     },
                                     child: Text('Lanjutkan'),
                                   ), // TextButtontton

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
 
 class BottomNavLatihan extends StatefulWidget {
   const BottomNavLatihan({super.key});
