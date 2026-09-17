@@ -92,30 +92,29 @@ class _Tugas10State extends State<Tugas10> {
                     TextFormField(
                       controller: phoneNumberController,
                       decoration: InputDecoration(
-                        labelText: 'Nomor Handphone',
-                        hintText: 'Masukkan Nomor',
+                        labelText: 'Nomor Handphone (opsional)',
+                        hintText: 'Masukkan Nomor (opsional)',
                         prefixIcon: const Icon(Icons.phone),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 16),
                     // Warna Kesukaan
                     TextFormField(
                       controller: colorController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Nama wajib diisi';
+                          return 'Warna kesukaan wajib diisi';
                         } else if (!value.contains(RegExp(r'^[a-zA-Z]+$'))) {
-                          return 'Nama hanya boleh alfabet';
+                          return 'Warna kesukaan hanya boleh alfabet';
                         }
                         return null;
                       },
                       decoration: InputDecoration(
                         labelText: 'Warna Kesukaan',
-                        hintText: 'Masukkan warna',
+                        hintText: 'Misal: Oranye',
                         prefixIcon: const Icon(Icons.color_lens),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -123,42 +122,61 @@ class _Tugas10State extends State<Tugas10> {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          showDialog(
-                            context: context,
-                            builder: (_) => AlertDialog(
-                              title: Text('Data '),
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Email: ${emailController.text}'),
+                    SizedBox(
+                      width: .infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: Text('Ringkasan Data'),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Nama: ${nameController.text}'),
+                                    Text('Email: ${emailController.text}'),
+                                    Text(
+                                      'Nomor Handphone: ${phoneNumberController.text}',
+                                    ),
+                                    Text('Warna: ${colorController.text}'),
+                                  ],
+                                ), // Column
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              HalamanTerimaKasih(
+                                                nama: nameController.text,
+                                                warna: colorController.text,
+                                              ),
+                                        ), // MaterialPageRoute
+                                      );
+                                    },
+                                    child: Text('Lanjutkan'),
+                                  ), // TextButtontton
                                 ],
-                              ), // Column
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            HalamanTerimaKasih(
-                                              email: emailController.text,
-                                            ),
-                                      ), // MaterialPageRoute
-                                    );
-                                  },
-                                  child: Text('Lanjutkan'),
-                                ), // TextButtontton
-                              ],
-                            ), // AlertDialog
-                          );
-                        }
-                      },
-                      child: const Text('Login'),
+                              ), // AlertDialog
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepOrange,
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: .w700,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -173,15 +191,11 @@ class _Tugas10State extends State<Tugas10> {
 
 class HalamanTerimaKasih extends StatelessWidget {
   final String nama;
-  final String email;
-  final String phone;
-  final String color;
+  final String warna;
   const HalamanTerimaKasih({
     super.key,
     required this.nama,
-    required this.email,
-    required this.phone,
-    required this.color,
+    required this.warna,
   });
 
   @override
@@ -190,7 +204,7 @@ class HalamanTerimaKasih extends StatelessWidget {
       appBar: AppBar(title: Text('Konfirmasi')),
       body: Center(
         child: Text(
-          'Terima kasih, $email',
+          'Terima kasih, $nama warna sawit anda adalah $warna',
           style: TextStyle(fontSize: 18),
           textAlign: TextAlign.center,
         ), // Text
