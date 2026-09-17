@@ -21,7 +21,7 @@ class _AboutUsState extends State<AboutUs> {
           child: Column(
             mainAxisAlignment: .center,
             crossAxisAlignment: .center,
-            spacing: 48,
+            spacing: 30,
             children: [
               Text(
                 'Tugas 8',
