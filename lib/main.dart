@@ -8,10 +8,15 @@ import 'package:ppkd_ju_android_dev_dede/nyoba/bottom_nav_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/nyoba/drawer_latihan.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas8/app.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas9/app.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas9/pages/tugas9_page1.dart';
 
 void main() {
-  // runApp(const MyApp());
-  runApp(const Tugas8());
+  runApp(const MyApp());
+  // tugas8
+  // runApp(const Tugas8());
+  // tugas9
+  runApp(const Tugas9());
 }
 
 class MyApp extends StatelessWidget {
@@ -40,16 +45,20 @@ class MyApp extends StatelessWidget {
       // home: StateEvent(),
 
       // tugas7
-      initialRoute: 'checkbox',
-      routes: {
-        ...Map.fromEntries(
-          drawerRoutes.map(
-            (page) => MapEntry(page.navigation, (context) => page.route),
-          ),
-        ),
-      },
+      // initialRoute: 'checkbox',
+      // routes: {
+      //   ...Map.fromEntries(
+      //     drawerRoutes.map(
+      //       (page) => MapEntry(page.navigation, (context) => page.route),
+      //     ),
+      //   ),
+      // },
 
       //tugas8
+      // tugas 8 ada diatas
+
+      //tugas9
+      //tugas 9 diatas
 
       // nyoba
       // bottom nav 1
