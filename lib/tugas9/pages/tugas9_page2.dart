@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/bottom_nav_9.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/data/buah_buahan.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas9/data/buah_buahan_icon.dart';
 
 class Tugas9Page2 extends StatelessWidget {
   const new({super.key});
@@ -12,9 +13,11 @@ class Tugas9Page2 extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
         child: ListView.builder(
-          itemCount: buah.length,
-          itemBuilder: (context, index) =>
-              ListTile(leading: Text('$index'), title: Text(buah[index])),
+          itemCount: buahBuahanIcon.length,
+          itemBuilder: (context, index) => ListTile(
+            leading: Icon(buahBuahanIcon[index]['icon']),
+            title: Text(buahBuahanIcon[index]['nama']),
+          ),
         ),
       ),
       bottomNavigationBar: BottomNav9(),

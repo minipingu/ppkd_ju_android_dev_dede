@@ -20,13 +20,10 @@ class _BottomNav9State extends State<BottomNav9> {
   @override
   Widget build(BuildContext context) {
     final location = GoRouterState.of(context).uri.path;
-    print(location);
 
     final selectedIndex = tugas9Routes.indexWhere(
       (page) => '/${page.navigation}' == location,
     );
-
-    print(selectedIndex);
 
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
