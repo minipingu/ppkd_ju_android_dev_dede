@@ -322,7 +322,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Expanded(child: Container()),
                               Text(
                                 _isSignUp
-                                    ? 'Allready have an account?'
+                                    ? 'Already have an account?'
                                     : 'Don’t have an account?',
                                 style: GoogleFonts.inter(
                                   color: Color(0xFF6C7278),
