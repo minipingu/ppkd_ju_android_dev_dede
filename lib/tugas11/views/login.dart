@@ -10,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isSignUp = false;
   //state
   bool wantToSeePassword = false;
   bool rememberMe = false;
@@ -61,17 +62,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           spacing: 12,
                           children: [
                             Text(
-                              'Login',
+                              _isSignUp ? 'Sign Up' : 'Login',
                               style: GoogleFonts.inter(
                                 fontWeight: .w700,
                                 fontSize: 34,
                               ),
                             ),
-                            Text(
-                              'Enter your email and password to log in',
-                              style: GoogleFonts.inter(
-                                fontSize: 12,
-                                color: Color(0xFF6C7278),
+                            RichText(
+                              text: TextSpan(
+                                text: 'Enter your email and password to ',
+                                children: [
+                                  TextSpan(
+                                    text: _isSignUp ? 'sign up' : 'log in',
+                                  ),
+                                ],
+                                style: GoogleFonts.inter(
+                                  fontSize: 12,
+                                  color: Color(0xFF6C7278),
+                                ),
                               ),
                             ),
                           ],
@@ -203,6 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Color(0xFF6C7278),
                                   ),
                                 ),
+
                                 Text(
                                   'Remember me',
                                   style: GoogleFonts.inter(
@@ -210,17 +219,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 Expanded(child: Container()),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Text(
-                                    'Forgot Password ?',
-                                    style: GoogleFonts.inter(
-                                      color: Color(0xFF4D81E7),
-                                      fontWeight: .w600,
-                                      fontSize: 12,
+                                if (!_isSignUp)
+                                  InkWell(
+                                    onTap: () {},
+                                    child: Text(
+                                      'Forgot Password ?',
+                                      style: GoogleFonts.inter(
+                                        color: Color(0xFF4D81E7),
+                                        fontWeight: .w600,
+                                        fontSize: 12,
+                                      ),
                                     ),
                                   ),
-                                ),
                               ],
                             ),
                           ],
@@ -250,7 +260,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               onPressed: () {},
                               child: Text(
-                                'Log In',
+                                _isSignUp ? 'Sign Up' : 'Log In',
                                 style: GoogleFonts.inter(
                                   color: Color(0xFFFFFFFF),
                                   fontSize: 14,
@@ -260,40 +270,60 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        Row(
+                        Column(
                           spacing: 16,
                           children: [
-                            Expanded(child: Divider(color: Color(0xFFFFFFFF))),
-                            Text(
-                              'Or login with',
-                              style: GoogleFonts.inter(
-                                color: Color(0xFF6C7278),
-                                fontSize: 12,
-                                fontWeight: regular,
-                              ),
+                            Row(
+                              spacing: 16,
+                              children: [
+                                Expanded(
+                                  child: Divider(color: Color(0xFFFFFFFF)),
+                                ),
+                                Text(
+                                  !_isSignUp
+                                      ? 'Or login with'
+                                      : 'Or sign up with',
+                                  style: GoogleFonts.inter(
+                                    color: Color(0xFF6C7278),
+                                    fontSize: 12,
+                                    fontWeight: regular,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Divider(color: Color(0xFFFFFFFF)),
+                                ),
+                              ],
                             ),
-                            Expanded(child: Divider(color: Color(0xFFFFFFFF))),
+                            Row(
+                              mainAxisAlignment: .spaceBetween,
+                              children: [
+                                //reusable massss....
+                                AnotherLogin(
+                                  path: 'assets/icons/login_google.png',
+                                ),
+                                AnotherLogin(
+                                  path: 'assets/icons/login_facebook.png',
+                                ),
+                                AnotherLogin(
+                                  path: 'assets/icons/login_apple.png',
+                                ),
+                                AnotherLogin(
+                                  path: 'assets/icons/login_phone.png',
+                                ),
+                              ],
+                            ),
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: .spaceBetween,
-                          children: [
-                            //reusable massss....
-                            AnotherLogin(path: 'assets/icons/login_google.png'),
-                            AnotherLogin(
-                              path: 'assets/icons/login_facebook.png',
-                            ),
-                            AnotherLogin(path: 'assets/icons/login_apple.png'),
-                            AnotherLogin(path: 'assets/icons/login_phone.png'),
-                          ],
-                        ),
+
                         Center(
                           child: Row(
                             spacing: 6,
                             children: [
                               Expanded(child: Container()),
                               Text(
-                                'Don’t have an account?',
+                                _isSignUp
+                                    ? 'Allready have an account?'
+                                    : 'Don’t have an account?',
                                 style: GoogleFonts.inter(
                                   color: Color(0xFF6C7278),
                                   fontWeight: semiBold,
@@ -301,9 +331,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    _isSignUp = !_isSignUp;
+                                  });
+                                },
                                 child: Text(
-                                  'Sign Up',
+                                  _isSignUp ? 'Sign In' : 'Sign Up',
                                   style: GoogleFonts.inter(
                                     color: Color(0xFF4D81E7),
                                     fontWeight: semiBold,
