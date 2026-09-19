@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/models/manager_model.dart';
 
 class FormKopdes extends StatefulWidget {
   const FormKopdes({super.key});
@@ -17,6 +19,48 @@ class _FormKopdesState extends State<FormKopdes> {
   final phoneNumberController = TextEditingController();
   final passController = TextEditingController();
   final cityController = TextEditingController();
+
+  void register() async {
+    final name = nameController.text.trim();
+    final email = emailController.text.trim();
+    final phone = phoneNumberController.text.trim();
+    final password = passController.text;
+    final city = cityController.text.trim();
+
+    if (name.isEmpty ||
+        email.isEmpty ||
+        phone.isEmpty ||
+        password.isEmpty ||
+        city.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Isi semua donk 😡!')));
+      return;
+    }
+
+    final manager = ManagerModel(
+      name: name,
+      email: email,
+      phone: phone,
+      password: password,
+      city: city,
+    );
+
+    bool success = await DBHelper().registerUser(manager);
+
+    if (!mounted) return;
+
+    if (success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Manager berhasil di daftarkan! 😊👍')),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Email atau handphone sudah terdaftar! 😒'),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +94,6 @@ class _FormKopdesState extends State<FormKopdes> {
             //Email
             TextFormField(
               style: TextStyle(color: const Color.fromARGB(255, 255, 228, 228)),
-
               controller: emailController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -88,7 +131,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 ),
               ),
             ),
-            // Warna Kesukaan
+            // Password
             TextFormField(
               style: TextStyle(color: const Color.fromARGB(255, 255, 228, 228)),
               obscureText: _obscurePass,
@@ -119,6 +162,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 ),
               ),
             ),
+            //City
             TextFormField(
               style: TextStyle(color: const Color.fromARGB(255, 255, 228, 228)),
               obscureText: _obscurePass,
@@ -139,7 +183,6 @@ class _FormKopdesState extends State<FormKopdes> {
                 ),
               ),
             ),
-
             SizedBox(
               width: .infinity,
               child: ElevatedButton(
@@ -148,7 +191,7 @@ class _FormKopdesState extends State<FormKopdes> {
                     showDialog(
                       context: context,
                       builder: (_) => AlertDialog(
-                        title: Text('Ringkasan Data'),
+                        title: Text('Ringkasan Data Manager'),
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,13 +201,15 @@ class _FormKopdesState extends State<FormKopdes> {
                             Text(
                               'Nomor Handphone: ${phoneNumberController.text}',
                             ),
-                            Text('Warna: ${passController.text}'),
+                            Text('Kota: ${cityController.text}'),
                           ],
                         ), // Column
                         actions: [
                           TextButton(
-                            onPressed: () {},
-                            child: Text('Lanjutkan'),
+                            onPressed: () {
+                              register();
+                            },
+                            child: Text('Daftarkan'),
                           ), // TextButtontton
                         ],
                       ), // AlertDialog
