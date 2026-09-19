@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/app_kopdes.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11/tugas11.dart';
 
-// void main() {
-//   runApp(const MyApp());
-//   // tugas8
-//   // runApp(const Tugas8());
+void main() {
+  runApp(const MyApp());
+  // tugas8
+  // runApp(const Tugas8());
 
-//   // tugas9
-//   // runApp(const Tugas9());
-// }
-
-//Tugas 11
-void main() async {
-  // intinya kalau pakai async/await harus ada ini :
-  WidgetsFlutterBinding.ensureInitialized();
-  //
-  await PreferenceHandler.init();
-  runApp(const Tugas11());
+  // tugas9
+  // runApp(const Tugas9());
 }
+
+// //Tugas 11
+// void main() async {
+//   // intinya kalau pakai async/await harus ada ini :
+//   WidgetsFlutterBinding.ensureInitialized();
+//   //
+//   await PreferenceHandler.init();
+//   runApp(const Tugas11());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -65,7 +66,10 @@ class MyApp extends StatelessWidget {
       // home: Tugas10(),
 
       //tugas11
-      //tugas11 diatas
+      //tugas11 diatas GAJADI, adanya di veranza labs
+
+      //tugas 12-13
+      home: Tugas12Dan13(),
 
       // nyoba
       // bottom nav 1
