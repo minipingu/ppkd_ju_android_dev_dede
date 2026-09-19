@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/routes/routes.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/views/splash_screen.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/routes/routes.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/views/splash_screen.dart';
 
 final GoRouter routing11 = GoRouter(
   routes: <RouteBase>[

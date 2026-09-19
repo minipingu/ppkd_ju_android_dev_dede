@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/views/home.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/views/login.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/views/home.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/views/login.dart';
 
 //mencoba ala ala typescript ~_~
 typedef NavItem = ({String navigation, Widget route});

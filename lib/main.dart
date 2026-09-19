@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/app_kopdes.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/services/preference_handler.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11/tugas11.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/services/preference_handler.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/tugas11.dart';
 
 void main() {
   runApp(const MyApp());
