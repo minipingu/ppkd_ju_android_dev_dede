@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-class ManagerModels {
+class ManagerModel {
   final int? id;
   final String name;
   final String email;
   final String phone;
   final String password;
   final String city;
-  ManagerModels({
+  ManagerModel({
     this.id,
     required this.name,
     required this.email,
@@ -31,8 +31,8 @@ class ManagerModels {
     return result;
   }
 
-  factory ManagerModels.fromMap(Map<String, dynamic> map) {
-    return ManagerModels(
+  factory ManagerModel.fromMap(Map<String, dynamic> map) {
+    return ManagerModel(
       id: map['id']?.toInt(),
       name: map['name'] ?? '',
       email: map['email'] ?? '',
@@ -44,6 +44,6 @@ class ManagerModels {
 
   String toJson() => json.encode(toMap());
 
-  factory ManagerModels.fromJson(String source) =>
-      ManagerModels.fromMap(json.decode(source));
+  factory ManagerModel.fromJson(String source) =>
+      ManagerModel.fromMap(json.decode(source));
 }
