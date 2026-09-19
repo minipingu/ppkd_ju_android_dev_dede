@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_dilabs/views/widgets/another_login.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/views/widgets/another_login.dart';
 
 class LoginScreen extends StatefulWidget {
   const new({super.key});

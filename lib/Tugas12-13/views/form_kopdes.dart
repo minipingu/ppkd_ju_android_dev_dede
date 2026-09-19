@@ -11,7 +11,7 @@ class FormKopdes extends StatefulWidget {
 
 class _FormKopdesState extends State<FormKopdes> {
   //TODO:kota masih obscure, dialog ga hilang setelah klik daftar
-  bool _obscurePass = false;
+  bool _obscurePass = true;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -155,7 +155,7 @@ class _FormKopdesState extends State<FormKopdes> {
                     });
                   },
                   icon: Icon(
-                    !_obscurePass ? Icons.visibility : Icons.visibility_off,
+                    _obscurePass ? Icons.visibility : Icons.visibility_off,
                   ),
                 ),
                 border: OutlineInputBorder(
@@ -166,7 +166,6 @@ class _FormKopdesState extends State<FormKopdes> {
             //City
             TextFormField(
               style: TextStyle(color: const Color.fromARGB(255, 255, 228, 228)),
-              obscureText: _obscurePass,
               controller: cityController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -199,29 +198,51 @@ class _FormKopdesState extends State<FormKopdes> {
                           children: [
                             Text('Nama: ${nameController.text}'),
                             Text('Email: ${emailController.text}'),
-                            Text(
-                              'Nomor Handphone: ${phoneNumberController.text}',
-                            ),
+                            Text('Nomor HP: +62${phoneNumberController.text}'),
                             Text('Kota: ${cityController.text}'),
                           ],
-                        ), // Column
+                        ),
                         actions: [
                           TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: const Color.fromARGB(
+                                255,
+                                211,
+                                211,
+                                211,
+                              ),
+                              backgroundColor: const Color.fromARGB(
+                                255,
+                                145,
+                                10,
+                                0,
+                              ),
+                            ),
                             onPressed: () {
                               register();
+                              Navigator.pop(context);
+                              _formKey.currentState!.reset();
                             },
                             child: Text('Daftarkan'),
-                          ), // TextButtontton
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('Batal'),
+                          ),
                         ],
-                      ), // AlertDialog
+                      ),
                     );
                   }
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 114, 8, 0),
+                ),
                 child: const Text(
-                  'Input',
+                  'Simpan',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 203, 203, 203),
                     fontWeight: .w700,
                     fontSize: 16,
                   ),
