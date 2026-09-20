@@ -19,6 +19,7 @@ class FormKopdes extends StatefulWidget {
 }
 
 class _FormKopdesState extends State<FormKopdes> {
+  bool? readonly;
   bool _obscurePass = true;
 
   final _formKey = GlobalKey<FormState>();
@@ -32,6 +33,9 @@ class _FormKopdesState extends State<FormKopdes> {
   @override
   void initState() {
     super.initState();
+    if (widget.readonly != null) {
+      readonly = widget.readonly!;
+    }
 
     if (widget.manager != null) {
       final manager = widget.manager!;
@@ -43,7 +47,7 @@ class _FormKopdesState extends State<FormKopdes> {
     }
   }
 
-  void register() async {
+  void submit() async {
     final name = nameController.text.trim();
     final email = emailController.text.trim();
     final phone = phoneNumberController.text.trim();
@@ -68,7 +72,9 @@ class _FormKopdesState extends State<FormKopdes> {
       city: city,
     );
 
-    bool success = await DBHelper().registerUser(manager);
+    bool success = widget.readonly != true
+        ? await DBHelper().registerUser(manager)
+        : await DBHelper().updateManager(manager);
 
     if (!mounted) return;
 
@@ -83,6 +89,13 @@ class _FormKopdesState extends State<FormKopdes> {
         ),
       );
     }
+  }
+
+  final nameFocusNode = FocusNode();
+  void focusNama() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      nameFocusNode.requestFocus();
+    });
   }
 
   @override
@@ -108,7 +121,8 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               // Nama
               TextFormField(
-                readOnly: widget.readonly ?? false,
+                focusNode: nameFocusNode,
+                readOnly: readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 255, 228, 228),
                 ),
@@ -132,7 +146,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               //Email
               TextFormField(
-                readOnly: widget.readonly ?? false,
+                readOnly: readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 197, 179, 179),
                 ),
@@ -156,7 +170,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               //Phone
               TextFormField(
-                readOnly: widget.readonly ?? false,
+                readOnly: readonly ?? false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Nomor Handphone wajib diisi';
@@ -180,7 +194,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               // Password
               TextFormField(
-                readOnly: widget.readonly ?? false,
+                readOnly: readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 255, 228, 228),
                 ),
@@ -215,7 +229,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               //City
               TextFormField(
-                readOnly: widget.readonly ?? false,
+                readOnly: readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 255, 228, 228),
                 ),
@@ -237,54 +251,64 @@ class _FormKopdesState extends State<FormKopdes> {
                   ),
                 ),
               ),
-              if (widget.readonly != true)
-                SizedBox(
-                  width: .infinity,
-                  height: 48,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        register();
-                        Navigator.pop(context);
-                        widget.onAdd();
-                        _formKey.currentState!.reset();
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 114, 8, 0),
-                    ),
-                    child: const Text(
-                      'Simpan',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 203, 203, 203),
-                        fontWeight: .w700,
-                        fontSize: 16,
-                      ),
+
+              SizedBox(
+                width: .infinity,
+                height: 48,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (readonly == true) {
+                      setState(() {
+                        readonly = false;
+                      });
+                      focusNama();
+                    }
+
+                    // if ((readonly == false && widget.readonly != null) ||
+                    //     widget.readonly == null) {
+                    //   if (_formKey.currentState!.validate()) {
+                    //     submit();
+                    //     Navigator.pop(context);
+                    //     widget.onAdd();
+                    //     _formKey.currentState!.reset();
+                    //   }
+                    // }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 114, 8, 0),
+                  ),
+                  child: Text(
+                    readonly != true ? 'Simpan' : 'Edit',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 203, 203, 203),
+                      fontWeight: .w700,
+                      fontSize: 16,
                     ),
                   ),
                 ),
-              if (widget.readonly != true)
-                SizedBox(
-                  width: .infinity,
-                  height: 48,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      _formKey.currentState!.reset();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 189, 189, 189),
-                    ),
-                    child: const Text(
-                      'Batal',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 75, 75, 75),
-                        fontWeight: .w700,
-                        fontSize: 16,
-                      ),
+              ),
+
+              SizedBox(
+                width: .infinity,
+                height: 48,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    _formKey.currentState!.reset();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 189, 189, 189),
+                  ),
+                  child: const Text(
+                    'Batal',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 75, 75, 75),
+                      fontWeight: .w700,
+                      fontSize: 16,
                     ),
                   ),
                 ),
+              ),
               SizedBox(height: 20),
             ],
           ),

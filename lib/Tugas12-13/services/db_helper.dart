@@ -85,7 +85,7 @@ class DBHelper {
   }
 
   //Update
-  Future<bool> updateUser(ManagerModel manager) async {
+  Future<bool> updateManager(ManagerModel manager) async {
     final db = await database;
 
     try {
