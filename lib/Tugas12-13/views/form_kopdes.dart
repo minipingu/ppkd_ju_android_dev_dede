@@ -24,6 +24,7 @@ class _FormKopdesState extends State<FormKopdes> {
 
   final _formKey = GlobalKey<FormState>();
 
+  int? id;
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final phoneNumberController = TextEditingController();
@@ -39,6 +40,7 @@ class _FormKopdesState extends State<FormKopdes> {
 
     if (widget.manager != null) {
       final manager = widget.manager!;
+      id = manager.id;
       nameController.text = manager.name;
       emailController.text = manager.email;
       phoneNumberController.text = manager.phone;
@@ -65,6 +67,7 @@ class _FormKopdesState extends State<FormKopdes> {
     }
 
     final manager = ManagerModel(
+      id: id,
       name: name,
       email: email,
       phone: phone,
@@ -80,12 +83,22 @@ class _FormKopdesState extends State<FormKopdes> {
 
     if (success) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Manager berhasil di daftarkan! 😊👍')),
-      );
+        SnackBar(
+          content: Text(
+            widget.readonly == true
+                ? 'Manager berhasil diperbarui! 😊👍'
+                : 'Manager berhasil didaftarkan! 😊👍',
+          ),
+        ),
+      )
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Email atau handphone sudah terdaftar! 😒'),
+        SnackBar(
+          content: Text(
+            widget.readonly == true
+                ? 'Gagal memperbarui data manager! 😒'
+                : 'Email atau handphone sudah terdaftar! 😒',
+          ),
         ),
       );
     }
@@ -110,7 +123,7 @@ class _FormKopdesState extends State<FormKopdes> {
             spacing: 16,
             children: [
               Text(
-                widget.readonly == true
+                readonly == true
                     ? 'Data Manager Kopdes'
                     : 'Form Manager Kopdes',
                 style: TextStyle(
@@ -139,9 +152,11 @@ class _FormKopdesState extends State<FormKopdes> {
                   labelText: 'Nama',
                   hintText: 'Masukkan nama',
                   labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  border: readonly == false || widget.readonly == null
+                      ? OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )
+                      : InputBorder.none,
                 ),
               ),
               //Email
@@ -163,9 +178,11 @@ class _FormKopdesState extends State<FormKopdes> {
                   labelText: 'Email',
                   labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Masukkan email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  border: readonly == false || widget.readonly == null
+                      ? OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )
+                      : InputBorder.none,
                 ),
               ),
               //Phone
@@ -187,9 +204,11 @@ class _FormKopdesState extends State<FormKopdes> {
                   labelText: 'Nomor Handphone',
                   labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Masukkan Nomor',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  border: readonly == false || widget.readonly == null
+                      ? OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )
+                      : InputBorder.none,
                 ),
               ),
               // Password
@@ -222,9 +241,11 @@ class _FormKopdesState extends State<FormKopdes> {
                       _obscurePass ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  border: readonly == false || widget.readonly == null
+                      ? OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )
+                      : InputBorder.none,
                 ),
               ),
               //City
@@ -246,9 +267,11 @@ class _FormKopdesState extends State<FormKopdes> {
                   labelText: 'Asal Kota',
                   labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Misal: Jakarta Utara',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  border: readonly == false || widget.readonly == null
+                      ? OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        )
+                      : InputBorder.none,
                 ),
               ),
 
@@ -262,17 +285,14 @@ class _FormKopdesState extends State<FormKopdes> {
                         readonly = false;
                       });
                       focusNama();
+                    } else {
+                      if (_formKey.currentState!.validate()) {
+                        submit();
+                        Navigator.pop(context);
+                        widget.onAdd();
+                        _formKey.currentState!.reset();
+                      }
                     }
-
-                    // if ((readonly == false && widget.readonly != null) ||
-                    //     widget.readonly == null) {
-                    //   if (_formKey.currentState!.validate()) {
-                    //     submit();
-                    //     Navigator.pop(context);
-                    //     widget.onAdd();
-                    //     _formKey.currentState!.reset();
-                    //   }
-                    // }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 114, 8, 0),
@@ -300,7 +320,7 @@ class _FormKopdesState extends State<FormKopdes> {
                     backgroundColor: const Color.fromARGB(255, 189, 189, 189),
                   ),
                   child: const Text(
-                    'Batal',
+                    'Kembali',
                     style: TextStyle(
                       color: Color.fromARGB(255, 75, 75, 75),
                       fontWeight: .w700,
