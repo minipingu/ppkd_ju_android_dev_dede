@@ -13,7 +13,7 @@ class Tugas12Dan13 extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: Center(
           child: Text(
-            'Pendaftaran Manajer KopDes',
+            'Daftar Manajer KopDes',
             style: TextStyle(color: Colors.white),
           ),
         ),

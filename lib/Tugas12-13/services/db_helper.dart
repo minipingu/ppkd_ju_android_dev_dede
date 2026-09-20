@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:path/path.dart';
-import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/models/manager_model.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBHelper {

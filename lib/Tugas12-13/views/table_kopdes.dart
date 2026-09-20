@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
-import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/models/manager_model.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 
 class TableKopdes extends StatefulWidget {
   const new({super.key});
@@ -21,12 +21,12 @@ class _TableKopdesState extends State<TableKopdes> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 600,
-      child: ListView.builder(
-        itemBuilder: (context, index) =>
-            Card(child: ListTile(title: Text(managers[index].name))),
-        itemCount: _managers.length,
-      ),
+      // height: 600,
+      // child: ListView.builder(
+      //   itemBuilder: (context, index) =>
+      //       Card(child: ListTile(title: Text(managers[index].name))),
+      //   itemCount: _managers.length,
+      // ),
     );
   }
 }

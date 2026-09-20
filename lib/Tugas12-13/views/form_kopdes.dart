@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
-import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/models/manager_model.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 
 class FormKopdes extends StatefulWidget {
   const FormKopdes({super.key});
