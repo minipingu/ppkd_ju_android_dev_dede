@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/dialog_delete.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/show_sheet_manager.dart';
 
 class TableKopdes extends StatefulWidget {
   final int update;
-  final Function showSheetManager;
-  const new({super.key, required this.update, required this.showSheetManager});
+  final ShowSheetManager showSheetManager;
+  final Function addUpdate;
+  const new({
+    super.key,
+    required this.update,
+    required this.showSheetManager,
+    required this.addUpdate,
+  });
 
   @override
   State<TableKopdes> createState() => _TableKopdesState();
@@ -74,7 +81,12 @@ class _TableKopdesState extends State<TableKopdes> {
             return Card(
               child: ListTile(
                 onTap: () {
-                  widget.showSheetManager(context);
+                  widget.showSheetManager(
+                    context,
+                    widget.addUpdate,
+                    manager: manager,
+                    readonly: true,
+                  );
                 },
                 leading: const CircleAvatar(
                   radius: 14,

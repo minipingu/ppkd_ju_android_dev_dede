@@ -5,8 +5,14 @@ import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 class FormKopdes extends StatefulWidget {
   final Function onAdd;
   final bool? readonly;
+  final ManagerModel? manager;
 
-  const FormKopdes({super.key, required this.onAdd, this.readonly});
+  const FormKopdes({
+    super.key,
+    required this.onAdd,
+    this.readonly,
+    this.manager,
+  });
 
   @override
   State<FormKopdes> createState() => _FormKopdesState();
@@ -22,6 +28,20 @@ class _FormKopdesState extends State<FormKopdes> {
   final phoneNumberController = TextEditingController();
   final passController = TextEditingController();
   final cityController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.manager != null) {
+      final manager = widget.manager!;
+      nameController.text = manager.name;
+      emailController.text = manager.email;
+      phoneNumberController.text = manager.phone;
+      passController.text = manager.password;
+      cityController.text = manager.city;
+    }
+  }
 
   void register() async {
     final name = nameController.text.trim();
@@ -104,6 +124,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 decoration: InputDecoration(
                   labelText: 'Nama',
                   hintText: 'Masukkan nama',
+                  labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -126,6 +147,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 },
                 decoration: InputDecoration(
                   labelText: 'Email',
+                  labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Masukkan email',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -149,6 +171,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 controller: phoneNumberController,
                 decoration: InputDecoration(
                   labelText: 'Nomor Handphone',
+                  labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Masukkan Nomor',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -173,6 +196,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 },
                 decoration: InputDecoration(
                   labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Masukan Password',
                   suffixIcon: IconButton(
                     onPressed: () {
@@ -206,6 +230,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 },
                 decoration: InputDecoration(
                   labelText: 'Asal Kota',
+                  labelStyle: TextStyle(color: Colors.pinkAccent, fontSize: 18),
                   hintText: 'Misal: Jakarta Utara',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),

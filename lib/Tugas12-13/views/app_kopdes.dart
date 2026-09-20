@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/table_kopdes.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/show_sheet_manager.dart';
 
@@ -35,8 +36,19 @@ class _Tugas12Dan13State extends State<Tugas12Dan13> {
         padding: EdgeInsetsGeometry.all(20),
         child: TableKopdes(
           update: update,
-          showSheetManager: (tableManagerContext) => SheetManager()
-              .showSheetManager(tableManagerContext, addUpdate, readonly: true),
+          addUpdate: addUpdate,
+          showSheetManager:
+              (
+                tableManagerContext,
+                addUpdate, {
+                bool? readonly,
+                ManagerModel? manager,
+              }) => SheetManager().showSheetManager(
+                tableManagerContext,
+                addUpdate,
+                readonly: true,
+                manager: manager,
+              ),
         ),
       ),
       bottomNavigationBar: Padding(
