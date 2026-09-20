@@ -77,7 +77,10 @@ class _FormKopdesState extends State<FormKopdes> {
     );
 
     if (delete == true) {
-      DeleteManager().showDeleteManager(context, manager, widget.onAdd);
+      DeleteManager().showDeleteManager(context, manager, () {
+        Navigator.pop(context);
+        widget.onAdd();
+      });
       return;
     }
 

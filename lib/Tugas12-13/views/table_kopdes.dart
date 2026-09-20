@@ -67,7 +67,7 @@ class _TableKopdesState extends State<TableKopdes> {
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return const Center(
             child: Text(
-              'Tidak ada data manager, ayo Tambah sekarang.',
+              'Tidak ada data manajer, ayo Tambah sekarang.',
               style: TextStyle(color: Colors.white),
             ),
           );

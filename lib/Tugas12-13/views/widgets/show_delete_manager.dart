@@ -6,7 +6,7 @@ class DeleteManager {
   void showDeleteManager(
     BuildContext context,
     ManagerModel manager,
-    Function update,
+    Function onSuccess,
   ) {
     showDialog(
       context: context,
@@ -15,11 +15,11 @@ class DeleteManager {
           children: [
             Icon(Icons.warning_amber_rounded, color: Colors.red),
             SizedBox(width: 8),
-            Text('Hapus Pengguna'),
+            Text('Hapus Manajer'),
           ],
         ),
         content: Text(
-          'Apakah Anda yakin ingin menghapus pengguna "${manager.name}"?',
+          'Apakah Anda yakin ingin menghapus manajer "${manager.name}"?',
         ),
         actions: [
           TextButton(
@@ -35,12 +35,12 @@ class DeleteManager {
               Navigator.pop(dialogContext);
               if (manager.id != null) {
                 await DBHelper().deleteManager(manager.id!);
-                update();
+                onSuccess();
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        'Pengguna ${manager.name} berhasil dihapus',
+                        'Manajer ${manager.name} berhasil dihapus 😯',
                       ),
                     ),
                   );
