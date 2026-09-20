@@ -90,7 +90,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 : 'Manager berhasil didaftarkan! 😊👍',
           ),
         ),
-      )
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
