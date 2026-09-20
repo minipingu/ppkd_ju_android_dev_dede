@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
-import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/dialog_delete.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/show_sheet_manager.dart';
 
 class TableKopdes extends StatefulWidget {
@@ -38,15 +37,6 @@ class _TableKopdesState extends State<TableKopdes> {
     if (oldWidget.update != widget.update) {
       _refreshManagers();
     }
-  }
-
-  void _showDeleteDialog(ManagerModel manager) {
-    showDialog(
-      context: context,
-      builder: (dialogContext) =>
-          //perlu ga sih ngasih context?
-          DialogDelete(manager: manager, refreshUsers: _refreshManagers),
-    );
   }
 
   void _refreshManagers() {
