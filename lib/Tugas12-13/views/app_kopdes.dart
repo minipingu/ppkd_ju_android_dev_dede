@@ -3,7 +3,21 @@ import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/form_kopdes.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/table_kopdes.dart';
 
 class Tugas12Dan13 extends StatelessWidget {
-  const new({super.key});
+  new({super.key});
+
+  void _showDialogManager(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      useSafeArea: true,
+      context: context,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.viewInsetsOf(context).bottom,
+        ),
+        child: FormKopdes(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +40,9 @@ class Tugas12Dan13 extends StatelessWidget {
             foregroundColor: const Color.fromARGB(255, 222, 222, 222),
             backgroundColor: const Color.fromARGB(255, 134, 9, 0),
           ),
-          onPressed: () {},
+          onPressed: () {
+            _showDialogManager(context);
+          },
           child: Text('Tambah Manager'),
         ),
       ),

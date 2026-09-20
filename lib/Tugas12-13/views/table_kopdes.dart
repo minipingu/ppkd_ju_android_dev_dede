@@ -56,26 +56,14 @@ class _TableKopdesState extends State<TableKopdes> {
             final manager = managers[index];
             return Card(
               child: ListTile(
-                leading: const CircleAvatar(child: Icon(Icons.person)),
-                title: Text(manager.name),
-                subtitle: Text('Asal Kota: ${manager.city}'),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Tombol Edit -> Membuka Modal Bottom Sheet
-                    IconButton(
-                      onPressed: () {
-                        // _showEditBottomSheet(user)
-                      },
-                      icon: const Icon(Icons.edit, color: Colors.blue),
-                    ),
-                    // Tombol Delete -> Membuka Dialog Konfirmasi
-                    IconButton(
-                      onPressed: () => _showDeleteDialog(manager),
-                      icon: const Icon(Icons.delete, color: Colors.red),
-                    ),
-                  ],
+                onTap: () {},
+                leading: const CircleAvatar(
+                  radius: 14,
+                  child: Icon(Icons.person, size: 20, color: Colors.red),
                 ),
+                title: Text('Nama: ${manager.name}'),
+                subtitle: Text('Asal Kota: ${manager.city}'),
+                trailing: Icon(Icons.arrow_right),
               ),
             );
           },
