@@ -145,16 +145,17 @@ class _FormKopdesState extends State<FormKopdes> {
                       ),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      submit(delete: true);
-                    },
-                    icon: Icon(
-                      Icons.delete,
-                      size: 30,
-                      color: const Color.fromARGB(255, 139, 9, 0),
+                  if (widget.readonly == true)
+                    IconButton(
+                      onPressed: () {
+                        submit(delete: true);
+                      },
+                      icon: Icon(
+                        Icons.delete,
+                        size: 30,
+                        color: const Color.fromARGB(255, 139, 9, 0),
+                      ),
                     ),
-                  ),
                 ],
               ),
               // Nama
