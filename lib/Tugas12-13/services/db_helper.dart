@@ -79,9 +79,16 @@ class DBHelper {
   }
 
   //Delete
-  Future<void> deleteManager(int id) async {
+  Future<bool> deleteManager(int id) async {
     final db = await database;
-    await db.delete('manager_kopdes', where: 'id = ?', whereArgs: [id]);
+
+    final result = await db.delete(
+      'manager_kopdes',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+
+    return result > 0;
   }
 
   //Update

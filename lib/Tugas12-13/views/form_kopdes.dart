@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/show_delete_manager.dart';
 
 class FormKopdes extends StatefulWidget {
   final Function onAdd;
@@ -49,7 +50,7 @@ class _FormKopdesState extends State<FormKopdes> {
     }
   }
 
-  void submit() async {
+  void submit({bool? delete}) async {
     final name = nameController.text.trim();
     final email = emailController.text.trim();
     final phone = phoneNumberController.text.trim();
@@ -74,6 +75,11 @@ class _FormKopdesState extends State<FormKopdes> {
       password: password,
       city: city,
     );
+
+    if (delete == true) {
+      DeleteManager().showDeleteManager(context, manager, widget.onAdd);
+      return;
+    }
 
     bool success = widget.readonly != true
         ? await DBHelper().registerUser(manager)
@@ -122,15 +128,31 @@ class _FormKopdesState extends State<FormKopdes> {
           child: Column(
             spacing: 16,
             children: [
-              Text(
-                readonly == true
-                    ? 'Data Manager Kopdes'
-                    : 'Form Manager Kopdes',
-                style: TextStyle(
-                  color: Colors.pink,
-                  fontSize: 24,
-                  fontWeight: .w600,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      readonly == true
+                          ? 'Data Manager Kopdes'
+                          : 'Form Manager Kopdes',
+                      style: TextStyle(
+                        color: Colors.pink,
+                        fontSize: 24,
+                        fontWeight: .w600,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      submit(delete: true);
+                    },
+                    icon: Icon(
+                      Icons.delete,
+                      size: 30,
+                      color: const Color.fromARGB(255, 139, 9, 0),
+                    ),
+                  ),
+                ],
               ),
               // Nama
               TextFormField(
