@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/form_kopdes.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/table_kopdes.dart';
+import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/show_sheet_manager.dart';
 
 class Tugas12Dan13 extends StatefulWidget {
   const new({super.key});
@@ -18,21 +18,6 @@ class _Tugas12Dan13State extends State<Tugas12Dan13> {
     });
   }
 
-  void _showDialogManager(BuildContext context) {
-    showModalBottomSheet(
-      backgroundColor: const Color.fromARGB(255, 17, 17, 17),
-      isScrollControlled: true,
-      useSafeArea: true,
-      context: context,
-      builder: (context) => Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.viewInsetsOf(context).bottom,
-        ),
-        child: SingleChildScrollView(child: FormKopdes(onAdd: addUpdate)),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +33,11 @@ class _Tugas12Dan13State extends State<Tugas12Dan13> {
       ),
       body: Padding(
         padding: EdgeInsetsGeometry.all(20),
-        child: TableKopdes(update: update),
+        child: TableKopdes(
+          update: update,
+          showSheetManager: (tableManagerContext) => SheetManager()
+              .showSheetManager(tableManagerContext, addUpdate, readonly: true),
+        ),
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsetsGeometry.all(40),
@@ -60,9 +49,9 @@ class _Tugas12Dan13State extends State<Tugas12Dan13> {
               backgroundColor: const Color.fromARGB(255, 134, 9, 0),
             ),
             onPressed: () {
-              _showDialogManager(context);
+              SheetManager().showSheetManager(context, addUpdate);
             },
-            child: Text('Tambah Manager'),
+            child: Text('Tambah Manager', style: TextStyle(fontSize: 18)),
           ),
         ),
       ),

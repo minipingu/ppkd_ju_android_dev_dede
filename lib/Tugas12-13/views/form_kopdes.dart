@@ -4,8 +4,9 @@ import 'package:ppkd_ju_android_dev_dede/Tugas12-13/models/manager_model.dart';
 
 class FormKopdes extends StatefulWidget {
   final Function onAdd;
+  final bool? readonly;
 
-  const FormKopdes({super.key, required this.onAdd});
+  const FormKopdes({super.key, required this.onAdd, this.readonly});
 
   @override
   State<FormKopdes> createState() => _FormKopdesState();
@@ -76,7 +77,9 @@ class _FormKopdesState extends State<FormKopdes> {
             spacing: 16,
             children: [
               Text(
-                'Form Manager Kopdes',
+                widget.readonly == true
+                    ? 'Data Manager Kopdes'
+                    : 'Form Manager Kopdes',
                 style: TextStyle(
                   color: Colors.pink,
                   fontSize: 24,
@@ -85,6 +88,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               // Nama
               TextFormField(
+                readOnly: widget.readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 255, 228, 228),
                 ),
@@ -107,8 +111,9 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               //Email
               TextFormField(
+                readOnly: widget.readonly ?? false,
                 style: TextStyle(
-                  color: const Color.fromARGB(255, 255, 228, 228),
+                  color: const Color.fromARGB(255, 197, 179, 179),
                 ),
                 controller: emailController,
                 validator: (value) {
@@ -129,6 +134,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               //Phone
               TextFormField(
+                readOnly: widget.readonly ?? false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Nomor Handphone wajib diisi';
@@ -151,6 +157,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               // Password
               TextFormField(
+                readOnly: widget.readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 255, 228, 228),
                 ),
@@ -184,6 +191,7 @@ class _FormKopdesState extends State<FormKopdes> {
               ),
               //City
               TextFormField(
+                readOnly: widget.readonly ?? false,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 255, 228, 228),
                 ),
@@ -204,52 +212,54 @@ class _FormKopdesState extends State<FormKopdes> {
                   ),
                 ),
               ),
-              SizedBox(
-                width: .infinity,
-                height: 48,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      register();
+              if (widget.readonly != true)
+                SizedBox(
+                  width: .infinity,
+                  height: 48,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        register();
+                        Navigator.pop(context);
+                        widget.onAdd();
+                        _formKey.currentState!.reset();
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 114, 8, 0),
+                    ),
+                    child: const Text(
+                      'Simpan',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 203, 203, 203),
+                        fontWeight: .w700,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              if (widget.readonly != true)
+                SizedBox(
+                  width: .infinity,
+                  height: 48,
+                  child: ElevatedButton(
+                    onPressed: () {
                       Navigator.pop(context);
-                      widget.onAdd();
                       _formKey.currentState!.reset();
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 114, 8, 0),
-                  ),
-                  child: const Text(
-                    'Simpan',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 203, 203, 203),
-                      fontWeight: .w700,
-                      fontSize: 16,
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 189, 189, 189),
+                    ),
+                    child: const Text(
+                      'Batal',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 75, 75, 75),
+                        fontWeight: .w700,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: .infinity,
-                height: 48,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _formKey.currentState!.reset();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 189, 189, 189),
-                  ),
-                  child: const Text(
-                    'Batal',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 75, 75, 75),
-                      fontWeight: .w700,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ),
               SizedBox(height: 20),
             ],
           ),

@@ -5,7 +5,8 @@ import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/dialog_delete.
 
 class TableKopdes extends StatefulWidget {
   final int update;
-  const new({super.key, required this.update});
+  final Function showSheetManager;
+  const new({super.key, required this.update, required this.showSheetManager});
 
   @override
   State<TableKopdes> createState() => _TableKopdesState();
@@ -72,7 +73,9 @@ class _TableKopdesState extends State<TableKopdes> {
             final manager = managers[index];
             return Card(
               child: ListTile(
-                onTap: () {},
+                onTap: () {
+                  widget.showSheetManager(context);
+                },
                 leading: const CircleAvatar(
                   radius: 14,
                   child: Icon(Icons.person, size: 20, color: Colors.red),
