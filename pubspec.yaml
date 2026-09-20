@@ -38,6 +38,7 @@ dependencies:
   path: ^1.9.1
   shared_preferences: ^2.5.5
   sqflite: ^2.4.4
+  # sqlite_viewer:
 
 dev_dependencies:
   go_router_builder: ^4.5.0

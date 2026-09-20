@@ -4,6 +4,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/services
 import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/tugas11.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
   // tugas8
   // runApp(const Tugas8());

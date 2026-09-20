@@ -8,7 +8,7 @@ class Tugas12Dan13 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 13, 13, 13),
+      backgroundColor: const Color.fromARGB(255, 23, 23, 23),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Center(
@@ -18,9 +18,17 @@ class Tugas12Dan13 extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
+      body: Padding(padding: EdgeInsetsGeometry.all(20), child: TableKopdes()),
+      bottomNavigationBar: Padding(
         padding: EdgeInsetsGeometry.all(20),
-        child: ListView(children: [FormKopdes(), TableKopdes()]),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: const Color.fromARGB(255, 222, 222, 222),
+            backgroundColor: const Color.fromARGB(255, 134, 9, 0),
+          ),
+          onPressed: () {},
+          child: Text('Tambah Manager'),
+        ),
       ),
     );
   }
