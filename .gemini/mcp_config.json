@@ -3,9 +3,9 @@
     "todo-mcp": {
       "command": "node",
       "args": [
-        "c:\\Users\\Admin\\.cursor\\extensions\\hurtis.todo-2.0.0-universal\\bin\\todo-mcp.js",
+        "c:\\Users\\minipingu\\.cursor\\extensions\\hurtis.todo-2.0.0-universal\\bin\\todo-mcp.js",
         "--workspace",
-        "c:\\Users\\Admin\\Desktop\\ppkd_ju_android_dev_dede"
+        "c:\\Users\\minipingu\\Desktop\\tumgas"
       ]
     }
   }

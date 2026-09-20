@@ -2,11 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/form_kopdes.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/table_kopdes.dart';
 
-class Tugas12Dan13 extends StatelessWidget {
-  new({super.key});
+class Tugas12Dan13 extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<Tugas12Dan13> createState() => _Tugas12Dan13State();
+}
+
+class _Tugas12Dan13State extends State<Tugas12Dan13> {
+  int update = 0;
+
+  void addUpdate() {
+    setState(() {
+      update++;
+    });
+  }
 
   void _showDialogManager(BuildContext context) {
     showModalBottomSheet(
+      backgroundColor: const Color.fromARGB(255, 17, 17, 17),
       isScrollControlled: true,
       useSafeArea: true,
       context: context,
@@ -14,7 +28,7 @@ class Tugas12Dan13 extends StatelessWidget {
         padding: EdgeInsets.only(
           bottom: MediaQuery.viewInsetsOf(context).bottom,
         ),
-        child: FormKopdes(),
+        child: SingleChildScrollView(child: FormKopdes(onAdd: addUpdate)),
       ),
     );
   }
@@ -32,18 +46,24 @@ class Tugas12Dan13 extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(padding: EdgeInsetsGeometry.all(20), child: TableKopdes()),
-      bottomNavigationBar: Padding(
+      body: Padding(
         padding: EdgeInsetsGeometry.all(20),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            foregroundColor: const Color.fromARGB(255, 222, 222, 222),
-            backgroundColor: const Color.fromARGB(255, 134, 9, 0),
+        child: TableKopdes(update: update),
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsetsGeometry.all(40),
+        child: SizedBox(
+          height: 48,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              foregroundColor: const Color.fromARGB(255, 222, 222, 222),
+              backgroundColor: const Color.fromARGB(255, 134, 9, 0),
+            ),
+            onPressed: () {
+              _showDialogManager(context);
+            },
+            child: Text('Tambah Manager'),
           ),
-          onPressed: () {
-            _showDialogManager(context);
-          },
-          child: Text('Tambah Manager'),
         ),
       ),
     );

@@ -4,7 +4,8 @@ import 'package:ppkd_ju_android_dev_dede/Tugas12-13/services/db_helper.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/widgets/dialog_delete.dart';
 
 class TableKopdes extends StatefulWidget {
-  const new({super.key});
+  final int update;
+  const new({super.key, required this.update});
 
   @override
   State<TableKopdes> createState() => _TableKopdesState();
@@ -13,13 +14,23 @@ class TableKopdes extends StatefulWidget {
 class _TableKopdesState extends State<TableKopdes> {
   late Future<List<ManagerModel>> _managersFuture;
 
-  // ini useEffect dependency [] ala flutter
+  // ini useEffect dependency kosong [] ala flutter
   @override
   void initState() {
     super.initState();
     _refreshManagers();
   }
   //
+
+  // ribet beud dah dependency update widgetnya
+  @override
+  void didUpdateWidget(covariant TableKopdes oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.update != widget.update) {
+      _refreshManagers();
+    }
+  }
 
   void _showDeleteDialog(ManagerModel manager) {
     showDialog(
@@ -46,7 +57,12 @@ class _TableKopdesState extends State<TableKopdes> {
           return Center(child: Text('Terjadi kesalahan: ${snapshot.error}'));
         }
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('Tidak ada data pengguna.'));
+          return const Center(
+            child: Text(
+              'Tidak ada data manager, ayo Tambah sekarang.',
+              style: TextStyle(color: Colors.white),
+            ),
+          );
         }
         final managers = snapshot.data!;
 
