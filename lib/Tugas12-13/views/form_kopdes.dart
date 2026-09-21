@@ -169,7 +169,7 @@ class _FormKopdesState extends State<FormKopdes> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Nama wajib diisi';
-                  } else if (!value.contains(RegExp(r'^[a-zA-Z]+$'))) {
+                  } else if (!value.contains(RegExp(r'^[a-zA-Z ]+$'))) {
                     return 'Nama hanya boleh alfabet';
                   }
                   return null;
