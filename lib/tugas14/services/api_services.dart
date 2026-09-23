@@ -6,11 +6,11 @@ import 'package:retrofit/retrofit.dart';
 part 'api_services.g.dart';
 
 // @RestApi menentukan baseUrl default untuk seluruh endpoint di class ini
-@RestApi(baseUrl: 'https://jsonplaceholder.typicode.com')
-abstract class ApiService {
-  factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
+@RestApi(baseUrl: 'https://www.themealdb.com')
+abstract class MbgService {
+  factory MbgService(Dio dio, {String baseUrl}) = _MbgService;
 
   // Endpoint GET /posts untuk mengambil daftar semua data post
-  @GET('/posts')
-  Future<List<RandomMbg>> getAllPosts();
+  @GET('/api/json/v1/1/random.php')
+  Future<List<Meal>> getAllMeals();
 }

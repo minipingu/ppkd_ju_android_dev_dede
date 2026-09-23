@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/app_kopdes.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/services/preference_handler.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/tugas11.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas14/views/home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,7 +71,10 @@ class MyApp extends StatelessWidget {
       //tugas11 diatas GAJADI, adanya di veranza labs
 
       //tugas 12-13
-      home: Tugas12Dan13(),
+      // home: Tugas12Dan13(),
+
+      //tugas 14
+      home: RandomEmbege(),
 
       // nyoba
       // bottom nav 1

@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 Dio createDioClient() {
   final dio = Dio(
     BaseOptions(
-      baseUrl: 'https://jsonplaceholder.typicode.com',
+      baseUrl: 'https://www.themealdb.com',
       connectTimeout: const Duration(
         seconds: 10,
       ), // Timeout saat mencoba menghubungkan ke server

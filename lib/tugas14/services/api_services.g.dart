@@ -11,9 +11,9 @@ part of 'api_services.dart';
 // ignore_for_file: type=lint
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main,avoid_redundant_argument_values
 
-class _ApiService implements ApiService {
-  _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://jsonplaceholder.typicode.com';
+class _MbgService implements MbgService {
+  _MbgService(this._dio, {this.baseUrl, this.errorLogger}) {
+    baseUrl ??= 'https://www.themealdb.com';
   }
 
   final Dio _dio;
@@ -23,26 +23,26 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<RandomMbg>> getAllPosts() async {
+  Future<List<Meal>> getAllMeals() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<RandomMbg>>(
+    final _options = _setStreamType<List<Meal>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/posts',
+            '/api/json/v1/1/random.php',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<RandomMbg> _value;
+    late List<Meal> _value;
     try {
       _value = _result.data!
-          .map((dynamic i) => RandomMbg.fromJson(i as Map<String, dynamic>))
+          .map((dynamic i) => Meal.fromJson(i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
