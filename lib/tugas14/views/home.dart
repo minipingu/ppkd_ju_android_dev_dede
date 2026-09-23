@@ -94,19 +94,22 @@ class _RandomEmbegeState extends State<RandomEmbege> {
               }
 
               if (!snapshot.hasData || (snapshot.data!.meals).isEmpty) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: .center,
-                    children: [
-                      Text(
-                        'Menu MBG apa ya hari ini? 🤔',
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          fontSize: 22,
+                return Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: .center,
+                      children: [
+                        Text(
+                          'Menu MBG apa ya hari ini? 🤔',
+                          style: TextStyle(
+                            color: const Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 22,
+                          ),
                         ),
-                      ),
-                      ButtonSearchMbg(onPressed: () => _gachaMBG()),
-                    ],
+                        ButtonSearchMbg(onPressed: () => _gachaMBG()),
+                      ],
+                    ),
                   ),
                 );
               }
