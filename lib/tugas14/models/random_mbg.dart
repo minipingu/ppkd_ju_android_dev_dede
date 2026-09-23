@@ -1,6 +1,6 @@
 // To parse this JSON data, do
 //
-//     final RandomMBG = RandomMBGFromJson(jsonString);
+//     final randomMbg = randomMbgFromJson(jsonString);
 
 import 'package:json_annotation/json_annotation.dart';
 
@@ -8,38 +8,42 @@ import 'dart:convert';
 
 part 'random_mbg.g.dart';
 
-RandomMBG RandomMBGFromJson(String str) => RandomMBG.fromJson(json.decode(str));
+RandomMbg randomMbgFromJson(String str) => RandomMbg.fromJson(json.decode(str));
 
-String RandomMBGToJson(RandomMBG data) => json.encode(data.toJson());
+String randomMbgToJson(RandomMbg data) => json.encode(data.toJson());
 
 @JsonSerializable()
-class RandomMBG {
+class RandomMbg {
+  @JsonKey(name: "meals")
   final List<Meal>? meals;
 
-  RandomMBG({this.meals});
+  RandomMbg({this.meals});
 
-  factory RandomMBG.fromJson(Map<String, dynamic> json) =>
-      _$RandomMBGFromJson(json);
+  factory RandomMbg.fromJson(Map<String, dynamic> json) =>
+      _$RandomMbgFromJson(json);
 
-  Map<String, dynamic> toJson() => _$RandomMBGToJson(this);
+  Map<String, dynamic> toJson() => _$RandomMbgToJson(this);
 }
 
 @JsonSerializable()
 class Meal {
-  final String? idMeal;
+  @JsonKey(name: "strMeal")
   final String? strMeal;
-  final String? strCategory;
-  final String? strArea;
-  final String? strInstructions;
+  @JsonKey(name: "strMealThumb")
   final String? strMealThumb;
+  @JsonKey(name: "idMeal")
+  final String? idMeal;
+  @JsonKey(name: "strArea")
+  final String? strArea;
+  @JsonKey(name: "strCountry")
+  final String? strCountry;
 
   Meal({
-    this.idMeal,
     this.strMeal,
-    this.strCategory,
-    this.strArea,
-    this.strInstructions,
     this.strMealThumb,
+    this.idMeal,
+    this.strArea,
+    this.strCountry,
   });
 
   factory Meal.fromJson(Map<String, dynamic> json) => _$MealFromJson(json);

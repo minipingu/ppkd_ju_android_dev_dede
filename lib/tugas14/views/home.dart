@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas14/models/random_mbg.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas14/services/api_services.dart';
+import 'package:ppkd_ju_android_dev_dede/tugas14/services/mbg_services.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas14/services/dio_client.dart';
 
 class RandomEmbege extends StatefulWidget {
@@ -11,23 +11,21 @@ class RandomEmbege extends StatefulWidget {
 }
 
 class _RandomEmbegeState extends State<RandomEmbege> {
-  late final MbgService _apiService;
-  late Future<List<Meal>> _mealsFuture;
+  late final MBGService _apiService;
+  late Future<RandomMbg> _mealsFuture;
 
   @override
   void initState() {
     super.initState();
-    // Inisialisasi Dio client & ApiService Retrofit saat widget dipasang
     final dio = createDioClient();
-    _apiService = MbgService(dio);
+    _apiService = MBGService(dio);
     // Memanggil API GET /Meals
-    _mealsFuture = _apiService.getAllMeals();
+    _mealsFuture = _apiService.getMBG();
   }
 
-  // Method untuk memicu request ulang (refetch data)
   void _refreshMeals() {
     setState(() {
-      _mealsFuture = _apiService.getAllMeals();
+      _mealsFuture = _apiService.getMBG();
     });
   }
 
@@ -40,12 +38,10 @@ class _RandomEmbegeState extends State<RandomEmbege> {
       body: FutureBuilder(
         future: _mealsFuture,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          // State 1: Menunggu respon (Loading)
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
 
-          // State 2: Terjadi error saat request data
           if (snapshot.hasError) {
             return Center(
               child: Padding(
@@ -71,17 +67,15 @@ class _RandomEmbegeState extends State<RandomEmbege> {
             ); // Center
           }
 
-          // State 3: Respon sukses tetapi data kosong
-          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          if (!snapshot.hasData || (snapshot.data!.meals).isEmpty) {
             return const Center(child: Text('Tidak ada data post.'));
           }
 
-          // State 4: Data berhasil dimuat
-          final List<Meal> randomMeals = snapshot.data!;
+          final RandomMbg randomMeals = snapshot.data!;
           return ListView.builder(
-            itemCount: randomMeals.length,
+            itemCount: randomMeals.meals!.length,
             itemBuilder: (context, index) {
-              final List<Meal> meal = randomMeals;
+              final List<Meal> meal = randomMeals.meals!;
               return Card(
                 margin: const EdgeInsets.symmetric(
                   horizontal: 12,
