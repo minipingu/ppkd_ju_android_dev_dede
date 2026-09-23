@@ -32,7 +32,7 @@ class _MBGService implements MBGService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/filter.php?c=Seafood',
+            'random.php',
             queryParameters: queryParameters,
             data: _data,
           )
