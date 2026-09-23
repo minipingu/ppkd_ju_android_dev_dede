@@ -6,9 +6,16 @@ class ButtonSearchMbg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => onPressed(),
-      child: Text('Gacha-in Donk...'),
+    return SizedBox(
+      width: .infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+        onPressed: () => onPressed(),
+        child: Text(
+          'Gacha-in Donk... ',
+          style: TextStyle(fontSize: 30, color: Colors.white),
+        ),
+      ),
     );
   }
 }
