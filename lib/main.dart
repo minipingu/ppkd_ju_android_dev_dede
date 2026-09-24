@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/app_kopdes.dart';
+import 'package:ppkd_ju_android_dev_dede/ngetes_geolocation/belajar_geolocation.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/services/preference_handler.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/tugas11.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas14/views/home.dart';
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
       // home: Tugas12Dan13(),
 
       //tugas 14
-      home: RandomEmbege(),
+      // home: RandomEmbege(),
 
       // nyoba
       // bottom nav 1
@@ -88,7 +89,9 @@ class MyApp extends StatelessWidget {
       //latihan db, sekarang sqflite
       // home: LoginScreenDB(),
 
-      // debugShowCheckedModeBanner: false,
+      //latihan geolocator
+      home: BelajarGeolocation(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
