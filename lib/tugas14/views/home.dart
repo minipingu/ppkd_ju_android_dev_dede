@@ -93,7 +93,8 @@ class _RandomEmbegeState extends State<RandomEmbege> {
                 ); // Center
               }
 
-              if (!snapshot.hasData || (snapshot.data!.meals).isEmpty) {
+              if (!snapshot.hasData ||
+                  (snapshot.data! as RandomMbg).meals!.isEmpty) {
                 return Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Center(
