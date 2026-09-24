@@ -6,7 +6,7 @@ import 'package:ppkd_ju_android_dev_dede/tugas14/views/widgets/button_search_mbg
 import 'package:ppkd_ju_android_dev_dede/tugas14/views/widgets/loading_mohon_bersabar.dart';
 
 class RandomEmbege extends StatefulWidget {
-  RandomEmbege({super.key});
+  const RandomEmbege({super.key});
 
   @override
   State<RandomEmbege> createState() => _RandomEmbegeState();

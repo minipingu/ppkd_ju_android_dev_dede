@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ForminputGrid extends StatelessWidget {
-  ForminputGrid({Key? key}) : super(key: key);
+  const ForminputGrid({super.key});
 
   @override
   Widget build(BuildContext context) {

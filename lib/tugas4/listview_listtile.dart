@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ListviewListtile extends StatelessWidget {
-  const ListviewListtile({Key? key}) : super(key: key);
+  const ListviewListtile({super.key});
 
   @override
   Widget build(BuildContext context) {

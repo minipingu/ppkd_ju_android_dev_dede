@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas7/tugas7_routes.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/route/tugas9_routes.dart';
 
 class BottomNav9 extends StatefulWidget {

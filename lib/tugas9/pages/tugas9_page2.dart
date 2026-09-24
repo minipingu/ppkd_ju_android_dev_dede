@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/bottom_nav_9.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas9/data/buah_buahan.dart';
 import 'package:ppkd_ju_android_dev_dede/tugas9/data/buah_buahan_icon.dart';
 
 class Tugas9Page2 extends StatelessWidget {

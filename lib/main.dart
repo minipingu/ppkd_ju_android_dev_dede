@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_ju_android_dev_dede/Tugas12-13/views/app_kopdes.dart';
-import 'package:ppkd_ju_android_dev_dede/ngetes_geolocation/belajar_geolocation.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/services/preference_handler.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas11_tidak_jadi_ada_di_labs/tugas11.dart';
-import 'package:ppkd_ju_android_dev_dede/tugas14/views/home.dart';
+import 'package:ppkd_ju_android_dev_dede/ngetes_geolocation/views/belajar_geolocation.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -90,7 +86,7 @@ class MyApp extends StatelessWidget {
       // home: LoginScreenDB(),
 
       //latihan geolocator
-      home: BelajarGeolocation(),
+      home: GoogleMapsScreenDay19(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LatihanStateful extends StatefulWidget {
-  const LatihanStateful({Key? key}) : super(key: key);
+  const LatihanStateful({super.key});
 
   @override
   _LatihanStatefulState createState() => _LatihanStatefulState();

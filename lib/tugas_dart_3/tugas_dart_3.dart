@@ -30,7 +30,7 @@ void main() {
   int index = 0;
   for (var fruit in fruits) {
     if (index < 2) {
-      print(" Saya suka ${index}: $fruit");
+      print(" Saya suka $index: $fruit");
       index++;
     }
   }
@@ -39,9 +39,9 @@ void main() {
   print('Soal 5');
   List<String> carts = ["Minyak", "Beras", "Gula", "Terigu", "Margarin"];
 
-  carts.forEach((cart) {
-    print(' Item ke-${index}: $cart');
+  for (var cart in carts) {
+    print(' Item ke-$index: $cart');
     index++;
-  });
+  }
   print('');
 }
